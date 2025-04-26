@@ -1,3 +1,3 @@
 # oceangraph-guide
 
-App Guide for OceanGraph
+OceanGraph User Guide
