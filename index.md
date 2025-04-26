@@ -1,5 +1,3 @@
-# App Guide for OceanGraph
-
 ## 1. Introduction to OceanGraph
 
 OceanGraph is a web platform that enables visualization and analysis of Argo float oceanographic data. It provides interactive data visualization tools and profile information for oceanography researchers, students, and anyone interested in oceanography.
