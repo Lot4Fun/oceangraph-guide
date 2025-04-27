@@ -1,8 +1,8 @@
-## 1. Introduction to OceanGraph
+# 1. Introduction to OceanGraph
 
 OceanGraph is a web platform that enables visualization and analysis of Argo float oceanographic data. It provides interactive data visualization tools and profile information for oceanography researchers, students, and anyone interested in oceanography.
 
-## 2. Main Features
+# 2. Main Features
 
 - Search for Argo floats worldwide by specifying geographic regions and time periods
 - Visualize vertical profiles of temperature, salinity and oxygen
@@ -10,14 +10,14 @@ OceanGraph is a web platform that enables visualization and analysis of Argo flo
 - Download selected observation profile data for advanced custom analysis
 - Save screenshots of search results and visualizations for your records
 
-## 3. Data Source
+# 3. Data Source
 
 These data were collected and made freely available by the International Argo Program and the national programs that contribute to it (http://www.argo.ucsd.edu, http://argo.jcommops.org).
 The Argo Program is part of the Global Ocean Observing System.
 
 DOI: Argo (2000). Argo float data and metadata from Global Data Assembly Centre (Argo GDAC). SEANOE. http://doi.org/10.17882/42182
 
-## 4. Data Filtering Policy
+# 4. Data Filtering Policy
 
 In OceanGraph, only carefully selected Argo float profiles are used according to the following conditions:
 
