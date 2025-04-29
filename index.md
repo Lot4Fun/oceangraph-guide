@@ -79,3 +79,15 @@ In OceanGraph, only carefully selected Argo float profiles are used according to
     | 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | PASS      |
 
     ***: DOXY quality flag not assigned**
+
+# 5. Legal Information
+
+For details regarding the terms of use and privacy policy, please refer to the following documents:
+
+- [Terms of Service (English)](./docs/terms_of_use_en.md)
+- [Privacy Policy (English)](./docs/privacy_policy_en.md)
+
+For documents in Japanese:
+
+- [利用規約（日本語）](./docs/terms_of_use_ja.md)
+- [プライバシーポリシー（日本語）](./docs/privacy_policy_ja.md)
