@@ -87,8 +87,7 @@ For details regarding the terms of use and privacy policy, please refer to the f
 - [Terms of Service (English)](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/terms_of_user_en.md)
 - [Privacy Policy (English)](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_en.md)
 
-
 For documents in Japanese:
 
 - [利用規約（日本語）](https//github.com/Unvelyze/oceangraph-guide/blob/main/docs/terms_of_user_ja.md)
-- [プライバシーポリシー（日本語）]([https//github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_ja.md](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_ja.md))
+- [プライバシーポリシー（日本語）](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_ja.md)
