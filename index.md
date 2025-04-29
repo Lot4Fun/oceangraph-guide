@@ -84,10 +84,11 @@ In OceanGraph, only carefully selected Argo float profiles are used according to
 
 For details regarding the terms of use and privacy policy, please refer to the following documents:
 
-- [Terms of Service (English)](./docs/terms_of_use_en.md)
-- [Privacy Policy (English)](./docs/privacy_policy_en.md)
+- [Terms of Service (English)](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/terms_of_user_en.md)
+- [Privacy Policy (English)](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_en.md)
+
 
 For documents in Japanese:
 
-- [利用規約（日本語）](./docs/terms_of_use_ja.md)
-- [プライバシーポリシー（日本語）](./docs/privacy_policy_ja.md)
+- [利用規約（日本語）](https//github.com/Unvelyze/oceangraph-guide/blob/main/docs/terms_of_user_ja.md)
+- [プライバシーポリシー（日本語）]([https//github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_ja.md](https://github.com/Unvelyze/oceangraph-guide/blob/main/docs/privacy_policy_ja.md))
