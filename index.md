@@ -91,3 +91,8 @@ For documents in Japanese:
 
 - [利用規約（日本語）](./docs/terms_of_use_ja.md)
 - [プライバシーポリシー（日本語）](./docs/privacy_policy_ja.md)
+
+# 6. Contact Information
+
+- If you encounter any bugs or have feature requests, please submit them via [Issues](https://github.com/Unvelyze/oceangraph-guide/issues).
+- For other inquiries, feel free to contact us at support(at)unvelyeze.com.
