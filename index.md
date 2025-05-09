@@ -45,7 +45,7 @@ In OceanGraph, only carefully selected Argo float profiles are used according to
 3. Position Quality Control
 
     - Only profiles with `POSITION_QC` values of 1 or 2 are used.
-    - While the POSITION_QC check is passed, some data may still be unreliable, as shown in the red circle below. Please interpret with caution.
+    - While the `POSITION_QC` check is passed, some data may still be unreliable, as shown in the red circle below. Please interpret with caution.
 
         ![Position QC Check](./imgs/position_qc.png)
 
