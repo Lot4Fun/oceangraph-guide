@@ -1,4 +1,4 @@
-# OceanGraph Terms of Service (English)
+# OceanGraph Terms of Service
 
 ## Article 1 (Application)
 

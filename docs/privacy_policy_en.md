@@ -1,4 +1,4 @@
-# OceanGraph Privacy Policy (English)
+# OceanGraph Privacy Policy
 
 ## Article 1 (Information Collected)
 
