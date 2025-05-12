@@ -1,4 +1,4 @@
-# OceanGraph 利用規約（日本語）
+# OceanGraph 利用規約
 
 ## 第1条（適用）
 
