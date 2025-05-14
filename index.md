@@ -86,7 +86,7 @@ Only profiles where at least **80%** of `PRES_ADJUSTED_QC`, `TEMP_ADJUSTED_QC`, 
     | 0       | 1 or 2  | 1 or 2  | 1 or 2  | NG        |
     | 1 or 2  | 0       | 1 or 2  | 1 or 2  | NG        |
     | 1 or 2  | 1 or 2  | 0       | 1 or 2  | NG        |
-    | 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | PASS      |
+    | 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | **PASS**  |
 
     ***: DOXY quality flag not assigned**
 
