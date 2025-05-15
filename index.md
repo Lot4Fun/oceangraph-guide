@@ -6,10 +6,17 @@ OceanGraph is a web platform for visualizing and analyzing Argo float oceanograp
 
 ## 2. Main features
 
+### For everyone
+
 - Search Argo floats worldwide by region and time
-- Visualize vertical profiles of temperature, salinity, and oxygen
+- Track individual float trajectories
 - Visualize time-series vertical sections of Argo float data
-- Explore trajectories of individual floats
+
+### For signed-in users
+
+All free features, plus:
+
+- Visualize vertical profiles of temperature, salinity, and oxygen
 - Download observation profile data for custom analysis
 - Save screenshots of search results and visualizations
 
