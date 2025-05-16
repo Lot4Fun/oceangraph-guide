@@ -79,7 +79,14 @@ Only data from depths shallower than **2000 dbar** are retained.
 
 Only profiles where at least **80%** of `PRES_ADJUSTED_QC`, `TEMP_ADJUSTED_QC`, and `PSAL_ADJUSTED_QC` flags are either 1 or 2 are kept.
 
-### 4-7. Layer-by-Layer filtering
+### 4-7. Interpolation of missing values
+
+For dissolved oxygen concentrations, which often contain missing (`NaN`) values, the following interpolation procedure is applied:
+
+1. Linear interpolation is used for internal (non-endpoint) missing values.
+2. Remaining missing values at the beginning or end of the profile are filled using backward-fill and forward-fill, respectively.
+
+### 4-8. Layer-by-Layer filtering
 
 - Only layers where the QC flags for pressure, temperature, and salinity are all 1 or 2 are kept.
 - For dissolved oxygen (`DOXY_ADJUSTED`):
@@ -96,6 +103,17 @@ Only profiles where at least **80%** of `PRES_ADJUSTED_QC`, `TEMP_ADJUSTED_QC`, 
     | 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | **PASS**  |
 
     ***: DOXY quality flag not assigned**
+
+### 4-9. Decimal precision
+
+To reduce data size, the values are rounded to the nearest values shown below:
+
+| Variable                    | Precision |
+|-----------------------------|-----------|
+| Pressure                    | 0.01      |
+| Temperature                 | 0.001     |
+| Salinity                    | 0.001     |
+| Dissolved oxygen concentration | 0.001  |
 
 ## 5. Legal information
 
