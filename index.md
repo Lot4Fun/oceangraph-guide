@@ -132,3 +132,9 @@ For documents in Japanese:
 
 - If you encounter any bugs or have feature requests, please submit them via [Issues](https://github.com/Unvelyze/oceangraph-guide/issues).
 - For other inquiries, feel free to contact us at support(at)unvelyze.com.
+
+## 7. Limitations & Usage Notes
+
+For known limitations and important usage notes, please refer to:
+
+- [Limitations & Usage Notes](./docs/limitations.md)
