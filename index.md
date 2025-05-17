@@ -97,26 +97,26 @@ For dissolved oxygen concentrations, which often contain missing (`NaN`) values,
   - The QC flag of DOXY itself is not used for filtering. This is because oxygen sensor quality can vary significantly, and applying its QC flag strictly may severely limit the available data.
   - Users should carefully interpret dissolved oxygen data due to potential sensor uncertainties.
 
-| pres_qc | temp_qc | psal_qc | doxy_qc | judgement |
-|---------|---------|---------|---------|-----------|
-| 1 or 2  | 1 or 2  | 1 or 2  | 1 or 2  | PASS      |
-| 0       | 1 or 2  | 1 or 2  | 1 or 2  | NG        |
-| 1 or 2  | 0       | 1 or 2  | 1 or 2  | NG        |
-| 1 or 2  | 1 or 2  | 0       | 1 or 2  | NG        |
-| 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | **PASS**  |
+| pres_qc | temp_qc | psal_qc | doxy_qc | Judgment |
+|---------|---------|---------|---------|----------|
+| 1 or 2  | 1 or 2  | 1 or 2  | 1 or 2  | PASS     |
+| 0       | 1 or 2  | 1 or 2  | 1 or 2  | FAIL     |
+| 1 or 2  | 0       | 1 or 2  | 1 or 2  | FAIL     |
+| 1 or 2  | 1 or 2  | 0       | 1 or 2  | FAIL     |
+| 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | **PASS** |
 
-***: DOXY quality flag not assigned**
+***: DOXY quality flag is not used in filtering.**
 
 ### 4-9. Decimal precision
 
 To reduce data size, the values are rounded to the nearest values shown below:
 
-| Variable                    | Precision |
-|-----------------------------|-----------|
-| Pressure                    | 0.01      |
-| Temperature                 | 0.001     |
-| Salinity                    | 0.001     |
-| Dissolved oxygen concentration | 0.001  |
+| Variable                       | Precision |
+|--------------------------------|-----------|
+| Pressure                       | 0.01      |
+| Temperature                    | 0.001     |
+| Salinity                       | 0.001     |
+| Dissolved oxygen concentration | 0.001     |
 
 ## 5. Legal information
 
