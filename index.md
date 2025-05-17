@@ -43,7 +43,8 @@ Only profiles that include all of the following variables are used:
 
 - `PLATFORM_NUMBER`
 - `CYCLE_NUMBER`
-- `DATE_CREATION`
+- `JULD`
+- `JULD_QC`
 - `LATITUDE`
 - `LONGITUDE`
 - `PRES_ADJUSTED`
@@ -53,10 +54,11 @@ Only profiles that include all of the following variables are used:
 - `PSAL_ADJUSTED`
 - `PSAL_ADJUSTED_QC`
 
-### 4-3. Position quality control
+### 4-3. Date and position quality control
 
+- Only profiles with `JULD_QC` values of 1 or 2 are used.
 - Only profiles with `POSITION_QC` values of 1 or 2 are used.
-- While the `POSITION_QC` check is passed, some data may still be unreliable, as shown in the red circle below. Please interpret with caution.
+- Even if a profile passes the `POSITION_QC` check, some data may still be unreliable. For example, as shown in the red circle below, caution is advised when interpreting such data.
 
     ![Position QC Check](./imgs/position_qc.png)
 
