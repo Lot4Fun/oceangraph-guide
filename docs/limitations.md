@@ -22,27 +22,27 @@ Please keep this in mind when interpreting the charts.
 
 OceanGraph provides a beta feature that clusters Argo profiles based on their vertical structure using machine learning. This functionality is experimental and comes with the following limitations and processing steps:
 
-#### Profile Limit
+1. Profile Limit
 
-- To reduce server load and memory usage, clustering accepts a maximum of 500 valid profiles per job.
+   - To reduce server load and memory usage, clustering accepts a maximum of 500 valid profiles per job.
 
-#### Depth Range & Interpolation
+2. Depth Range & Interpolation
 
-- Only the range between 200 and 1000 dbar is used.
-- Profiles are linearly interpolated every 100 dbar within this range to align them on a common vertical grid.
+   - Only the range between 200 and 1000 dbar is used.
+   - Profiles are linearly interpolated every 100 dbar within this range to align them on a common vertical grid.
 
-#### Required Variables
+3. Required Variables
 
-- Only profiles containing valid temperature and salinity data are considered.
-- Profiles missing these variables or lacking coverage in the specified depth range are excluded.
+   - Only profiles containing valid temperature and salinity data are considered.
+   - Profiles missing these variables or lacking coverage in the specified depth range are excluded.
 
-#### Clustering Basis
+4. Clustering Basis
 
-- Clustering is based on combined temperature and salinity vectors after standardization (z-score).
+   - Clustering is based on combined temperature and salinity vectors after standardization (z-score).
 
-#### Automatic K Determination
+5. Automatic K Determination
 
-- The number of clusters (K) is selected automatically using a simplified elbow method.
+   - The number of clusters (K) is selected automatically using a simplified elbow method.
 
 This feature is available to **signed-in users only**. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.
 
