@@ -1,6 +1,6 @@
 ## Limitations & Usage Notes
 
-### Missing Values in Vertical Section Charts
+### 1. Missing Values in Vertical Section Charts
 
 1. Masked Areas Without Original Data
 
@@ -18,7 +18,7 @@
 
 Please keep this in mind when interpreting the charts.
 
-### Clustering (Beta)
+### 2. Clustering (Beta)
 
 OceanGraph provides a beta feature that clusters Argo profiles based on their vertical structure using machine learning. This functionality is experimental and comes with the following limitations and processing steps:
 
@@ -47,3 +47,4 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
 This feature is available to **signed-in users only**. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.
 
 ![Clustering example](../imgs/clustering.png)
+**Note:** Gray markers indicate profiles that were excluded from clustering.
