@@ -20,6 +20,7 @@ All free features, plus:
 - Visualize vertical profiles of temperature, salinity, and oxygen
 - Download observation profile data for custom analysis
 - Save screenshots of search results and visualizations
+- Cluster Argo float profiles for pattern analysis
 
 ## 3. Data source
 
