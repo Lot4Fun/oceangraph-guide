@@ -2,8 +2,6 @@
 
 OceanGraph is a web platform for visualizing and analyzing Argo float oceanographic data. It offers interactive tools and profile information for researchers, students, and ocean enthusiasts.
 
-**Note: On iOS devices, you can browse the site without logging in, but login functionality is currently not supported.**
-
 ## 2. Main features
 
 ### For everyone
