@@ -30,6 +30,7 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
 
    - Only the range between 200 and 1000 dbar is used.
    - Profiles are linearly interpolated every 100 dbar within this range to align them on a common vertical grid.
+   - The upper 200 dbar is omitted to suppress the effects of seasonal thermocline and surface forcing.
 
 3. Required Variables
 
@@ -38,11 +39,11 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
 
 4. Clustering Basis
 
-   - Clustering is based on combined temperature and salinity vectors after standardization (z-score).
+   - Clustering is based on combined temperature and salinity vectors without standardization.
 
 5. Automatic K Determination
 
-   - The number of clusters (K) is selected automatically using a simplified elbow method.
+   - The number of clusters (K) is selected automatically using a simplified elbow method (with a maximum of 8 clusters).
 
 This feature is available to **signed-in users only**. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.
 
