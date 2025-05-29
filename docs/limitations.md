@@ -39,7 +39,7 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
 
 4. Clustering Basis
 
-   - Clustering is based on combined temperature and salinity vectors without standardization.
+   - Clustering is based on temperature and salinity vectors that are standardized using z-score normalization at each depth level. This ensures that variations at all depths contribute equally to the clustering process.
 
 5. Automatic K Determination
 
