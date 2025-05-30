@@ -37,9 +37,12 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
    - Only profiles containing valid temperature and salinity data are considered.
    - Profiles missing these variables or lacking coverage in the specified depth range are excluded.
 
-4. Clustering Basis
+4. Clustering Feature Vector
 
-   - Clustering is based on temperature and salinity vectors that are standardized using z-score normalization at each depth level. This ensures that variations at all depths contribute equally to the clustering process.
+   - Clustering is based on a feature vector composed of interpolated temperature and salinity values, combined with location data.
+   - Temperature and salinity vectors are standardized using z-score normalization at each depth level to ensure that variations at all depths contribute equally to the clustering process.
+   - Latitude is included as an additional feature, normalized by linear scaling from -90 to 90 degrees into a range of -1 to 1.
+   - Longitude is transformed into two features using its sine and cosine values (i.e., sin(λ), cos(λ)), allowing for circular continuity around the ±180° meridian without further normalization.
 
 5. Automatic K Determination
 
