@@ -20,6 +20,8 @@ All free features, plus:
 - Analyze T-S diagrams to explore water mass characteristics
 - Download observation profile data for custom analysis
 - Save screenshots of search results and visualizations
+- Store up to 3 saved search conditions for repeated use
+- Bookmark up to 5 float profiles for later reference or comparison
 - Cluster Argo float profiles for pattern analysis
 
 ## 3. Data source
