@@ -20,9 +20,11 @@ All free features, plus:
 - Analyze T-S diagrams to explore water mass characteristics
 - Download observation profile data for custom analysis
 - Save screenshots of search results and visualizations
-- Store up to 3 saved search conditions for repeated use
-- Bookmark up to 5 float profiles for later reference or comparison
+- Store up to 3 saved search conditions for repeated use (*)
+- Bookmark up to 5 float profiles for later reference or comparison (*)
 - Cluster Argo float profiles for pattern analysis
+
+**(*) Titles can contain up to 64 characters, and notes up to 200 characters.**
 
 ## 3. Data source
 
@@ -108,7 +110,7 @@ For dissolved oxygen concentrations, which often contain missing (`NaN`) values,
 | 1 or 2  | 1 or 2  | 0       | 1 or 2  | FAIL     |
 | 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | **PASS** |
 
-***: DOXY quality flag is not used in filtering.**
+**(*) DOXY quality flag is not used in filtering.**
 
 ### 4-9. Decimal precision
 
