@@ -80,3 +80,5 @@ OceanGraph calculates the mixed layer depth (MLD) from individual Argo float pro
    - Missing or undefined MLDs are shown in gray.
 
 This approach ensures efficient and consistent estimation of mixed layer depth across a wide range of Argo float profiles while maintaining reasonable accuracy for visualization and exploratory analysis.
+
+**Note:** This density-based definition of MLD does not always correspond to a visually uniform layer in temperature or salinity. In some cases, compensating changes in these variables can result in a nearly constant density over a deeper range, potentially leading to an overestimation of the physically mixed layer. While this method is widely adopted for its simplicity and consistency, users should be aware that it may not capture sharp vertical gradients in temperature or salinity individually.
