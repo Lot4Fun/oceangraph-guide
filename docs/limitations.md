@@ -52,3 +52,31 @@ This feature is available to **signed-in users only**. While we are actively imp
 
 ![Clustering example](../imgs/clustering.png)
 **Note:** Gray markers indicate profiles that were excluded from clustering.
+
+### 3. Mixed Layer Depth (MLD)
+
+OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential density (σθ). This method follows a simplified version of the classical density threshold approach, commonly used in oceanography.
+
+1. Potential Density Calculation
+
+   - MLD is determined from the vertical profile of potential density (σθ), which is estimated using a simplified version of the UNESCO 1983 equation.
+   - To keep the processing lightweight and dependency-free, we avoid using libraries like gsw or xarray and instead apply a polynomial approximation based on in-situ temperature, practical salinity, and pressure.
+   - This approximation is sufficient for MLD estimation but may not be suitable for studies requiring high-precision density values.
+
+2. MLD Definition and Threshold
+
+   - The MLD is defined as the shallowest depth where σθ increases by more than 0.03 kg/m³ relative to the value at 10 dbar.
+   - This threshold-based method is widely adopted in oceanographic literature and provides a practical way to estimate the depth of the surface mixed layer.
+   - If no such depth is found in the profile, the MLD is considered undefined for that observation.
+
+3. Conversion to Depth
+
+   - The estimated MLD (in decibars) is converted into physical depth (in meters) using a latitude-dependent formula from the UNESCO 1983 standard.
+   - This allows MLD values to be visualized spatially or compared across different regions with consistent units.
+
+4. Color Representation
+
+   - For visualizations such as maps, MLD values are mapped to colors using the reversed Viridis colormap (viridis_r in matplotlib), with shallow layers represented in brighter colors and deeper layers in darker tones.
+   - Missing or undefined MLDs are shown in gray.
+
+This approach ensures efficient and consistent estimation of mixed layer depth across a wide range of Argo float profiles while maintaining reasonable accuracy for visualization and exploratory analysis.
