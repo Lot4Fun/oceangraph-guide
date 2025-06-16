@@ -7,6 +7,7 @@ OceanGraph is a web platform for visualizing and analyzing Argo float oceanograp
 ### For everyone
 
 - Search Argo floats worldwide by region and time (up to a 30-day date range)
+- Search only profiles that include dissolved oxygen data
 - Search by WMO ID for direct access to specific floats
 - Track individual float trajectories
 - Visualize time-series vertical sections of Argo float data
