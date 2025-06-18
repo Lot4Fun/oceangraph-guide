@@ -55,30 +55,27 @@ This feature is available to **signed-in users only**. While we are actively imp
 
 ### 3. Mixed Layer Depth (MLD)
 
-OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential density (σθ). This method follows a simplified version of the classical density threshold approach, commonly used in oceanography.
+OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential temperature (θ), using the Gibbs SeaWater (GSW) Oceanographic Toolbox for accurate thermodynamic calculations. This method follows a temperature threshold approach, which is commonly used in oceanographic studies.
 
-1. Potential Density Calculation
+1. Potential Temperature Calculation
 
-   - MLD is determined from the vertical profile of potential density (σθ), which is estimated using a simplified version of the UNESCO 1983 equation.
-   - To keep the processing lightweight and dependency-free, we avoid using libraries like gsw or xarray and instead apply a polynomial approximation based on in-situ temperature, practical salinity, and pressure.
-   - This approximation is sufficient for MLD estimation but may not be suitable for studies requiring high-precision density values.
+   - MLD is determined from the vertical profile of potential temperature (θ), which is calculated using the GSW toolbox based on practical salinity, in-situ temperature, pressure, and latitude.
+   - This ensures high accuracy and consistency in the estimation of temperature-related stratification and mixed layer properties.
 
 2. MLD Definition and Threshold
 
-   - The MLD is defined as the shallowest depth where σθ increases by more than 0.03 kg/m³ relative to the value at 10 dbar.
-   - This threshold-based method is widely adopted in oceanographic literature and provides a practical way to estimate the depth of the surface mixed layer.
+   - The MLD is defined as the shallowest depth at which the potential temperature (θ) differs by more than 0.1°C from its value at 10 dbar.
+   - This threshold-based method is widely adopted in oceanographic literature and provides a straightforward and robust way to estimate the depth of the surface mixed layer based on thermal structure.
    - If no such depth is found in the profile, the MLD is considered undefined for that observation.
 
 3. Conversion to Depth
 
-   - The estimated MLD (in decibars) is converted into physical depth (in meters) using a latitude-dependent formula from the UNESCO 1983 standard.
-   - This allows MLD values to be visualized spatially or compared across different regions with consistent units.
+   - The estimated MLD (in decibars) is converted into physical depth (in meters) using a latitude-dependent algorithm from the UNESCO 1983 standard.
+   - This conversion allows MLD values to be spatially visualized or regionally compared using consistent units.
 
 4. Color Representation
 
-   - For visualizations such as maps, MLD values are mapped to colors using the reversed Viridis colormap (viridis_r in matplotlib), with shallow layers represented in brighter colors and deeper layers in darker tones.
-   - Missing or undefined MLDs are shown in gray.
+   - For visualizations such as maps, MLD values are mapped to colors using the reversed Viridis colormap (viridis_r in matplotlib), where shallow layers appear bright and deeper layers appear dark.
+   - Profiles with missing or undefined MLD values are rendered in gray.
 
-This approach ensures efficient and consistent estimation of mixed layer depth across a wide range of Argo float profiles while maintaining reasonable accuracy for visualization and exploratory analysis.
-
-**Note:** This density-based definition of MLD does not always correspond to a visually uniform layer in temperature or salinity. In some cases, compensating changes in these variables can result in a nearly constant density over a deeper range, potentially leading to an overestimation of the physically mixed layer. While this method is widely adopted for its simplicity and consistency, users should be aware that it may not capture sharp vertical gradients in temperature or salinity individually.
+This approach provides an accurate and consistent estimation of mixed layer depth across a wide range of Argo float profiles. It is particularly well-suited for visual analysis and regional comparisons based on temperature stratification.
