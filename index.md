@@ -41,7 +41,8 @@ In OceanGraph, only carefully selected Argo float profiles are used according to
 
 ### 4-1. Selection of profiles
 
-- Only profiles in delayed mode (files starting with `D` or `BD`) are used.
+- Only real-time (`R`, `BR`) and delayed-mode (`D`, `BD`) profiles are used.
+- If both real-time and delayed-mode profiles exist for the same cycle, the delayed-mode profile (D or BD) is preferred.
 - Drift profiles (those with a `D` at the end of `CYCLE_NUMBER`) are excluded.
 
 ### 4-2. Required variables
