@@ -25,6 +25,7 @@ All free features, plus:
 - Store up to 3 saved search conditions for repeated use (*)
 - Bookmark up to 5 float profiles for later reference or comparison (*)
 - Cluster Argo float profiles for pattern analysis
+- Explore and compare ocean profiles with customizable tools — [learn more](./docs/visual_lab/vertical_profiles.md)
 
 **(*) Titles can contain up to 64 characters, and notes up to 200 characters.**
 
