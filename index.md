@@ -71,6 +71,27 @@ Only profiles that include all of the following variables are used:
 
     ![Position QC Check](./imgs/position_qc.png)
 
+**Note:** In some NetCDF files, multiple profiles can be present in a single file. In such cases, only the first profile (i.e., index 0) is used for further analysis, as illustrated in the example below:
+
+```python
+# NetCDF file:
+D5906026_128.nc
+
+# JULD_QC:
+[b'1' b'1']
+
+# POSITION_QC:
+[b'1' b'1']
+
+# TEMP_QC:
+[[b'1' b'1' b'1' ... b'1' b'1' b'1']
+ [b'1' b'1' b'1' ... nan nan nan]]
+
+# TEMP:
+[[7.743  7.745  7.745  ... 2.0353 1.9964 1.9618]
+ [7.7466 7.7459 7.7462 ...    nan    nan    nan]]
+```
+
 ### 4-4. Sorting of data
 
 The profiles are sorted in ascending order of `PRES_ADJUSTED`, and the following variables are reordered accordingly:
