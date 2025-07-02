@@ -19,6 +19,7 @@ All free features, plus:
 - Search Argo floats with an extended date range (up to 90 days)
 - Visualize vertical profiles of temperature, salinity, and oxygen
 - View mixed layer depth from profile data
+- View SOM (subsurface oxygen maximum) depth and its corresponding values
 - Analyze T-S diagrams to explore water mass characteristics
 - Download observation profile data for custom analysis
 - Save screenshots of search results and visualizations
