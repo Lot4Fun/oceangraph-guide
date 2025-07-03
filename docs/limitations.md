@@ -68,12 +68,17 @@ OceanGraph calculates the mixed layer depth (MLD) from individual Argo float pro
    - This threshold-based method is widely adopted in oceanographic literature and provides a straightforward and robust way to estimate the depth of the surface mixed layer based on thermal structure.
    - If no such depth is found in the profile, the MLD is considered undefined for that observation.
 
-3. Conversion to Depth
+3. Data Quality Requirements
+
+   - **Reference Depth Coverage**: The reference depth (10 dbar) must be within the measured pressure range of the profile. If the reference depth falls outside the available data range, MLD calculation is skipped for that profile.
+   - **Shallow Data Availability**: A minimum of 3 data points at or above 50 dbar is required for reliable MLD calculation. Profiles with insufficient shallow measurements are excluded from MLD computation to ensure accuracy.
+
+4. Conversion to Depth
 
    - The estimated MLD (in decibars) is converted into physical depth (in meters) using a latitude-dependent algorithm from the UNESCO 1983 standard.
    - This conversion allows MLD values to be spatially visualized or regionally compared using consistent units.
 
-4. Color Representation
+5. Color Representation
 
    - For visualizations such as maps, MLD values are mapped to colors using the reversed Viridis colormap (viridis_r in matplotlib), where shallow layers appear bright and deeper layers appear dark.
    - Profiles with missing or undefined MLD values are rendered in gray.
