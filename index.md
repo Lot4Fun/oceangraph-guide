@@ -107,7 +107,7 @@ The profiles are sorted in ascending order of `PRES_ADJUSTED`, and the following
 
 ### 4-5. Depth range restriction
 
-Only data from depths shallower than **2000 dbar** are retained.
+Only data from depths shallower than **2000 dbar** are retained. Additionally, layers with negative pressure values are removed along with their corresponding data (temperature, salinity, dissolved oxygen, etc.).
 
 ### 4-6. Profile quality filtering
 
