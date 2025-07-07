@@ -113,7 +113,7 @@ Only data from depths shallower than **2000 dbar** are retained. Additionally, l
 
 Only profiles where at least **80%** of `PRES_ADJUSTED_QC`, `TEMP_ADJUSTED_QC`, and `PSAL_ADJUSTED_QC` flags are either 1 or 2 are kept.
 
-### 4-7. Interpolation of missing values
+### 4-7. Interpolation of missing values for dissolved oxygen
 
 For dissolved oxygen concentrations, which often contain missing (`NaN`) values, the following interpolation procedure is applied:
 
