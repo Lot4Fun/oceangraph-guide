@@ -138,9 +138,19 @@ For dissolved oxygen concentrations, which often contain missing (`NaN`) values,
 
 **(*) DOXY quality flag is not used in filtering.**
 
-### 4-9. Pressure gap filtering
+### 4-9. NaN value detection
 
-Profiles with excessively large gaps in pressure measurements are excluded to ensure data continuity. The filtering uses depth-dependent gap thresholds that become more permissive with increasing depth:
+After the layer-by-layer filtering, the system checks for any remaining NaN (Not a Number) values in the core variables:
+
+- Pressure (`PRES_ADJUSTED`)
+- Temperature (`TEMP_ADJUSTED`)
+- Salinity (`PSAL_ADJUSTED`)
+
+If any NaN values are detected in these critical variables, the entire profile is rejected and removed from the dataset. This ensures data integrity and prevents computational errors in downstream analysis.
+
+### 4-10. Pressure gap filtering
+
+Profiles with excessively large gaps in pressure measurements are rejected and removed from the dataset to ensure data continuity. The filtering uses depth-dependent gap thresholds that become more permissive with increasing depth:
 
 - **0-100 dbar**: Maximum gap of 33.33 dbar
 - **100-200 dbar**: Maximum gap of 66.67 dbar
@@ -150,7 +160,7 @@ Profiles with excessively large gaps in pressure measurements are excluded to en
 
 This ensures that profiles maintain adequate vertical resolution throughout the water column, with stricter requirements in shallower waters where oceanographic gradients are typically steeper.
 
-### 4-10. Decimal precision
+### 4-11. Decimal precision
 
 To reduce data size, the values are rounded to the nearest values shown below:
 
