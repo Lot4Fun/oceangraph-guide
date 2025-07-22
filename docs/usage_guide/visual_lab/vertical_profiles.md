@@ -1,10 +1,6 @@
 ## Vertical Profile Viewer
 
-The Vertical Profile Viewer is a feature of OceanGraph that allows you to visualize and compare vertical profiles of oceanographic data.
-
-## Overview
-
-With this tool, you can:
+The Vertical Profile Viewer is a feature of OceanGraph that allows you to visualize and compare vertical profiles of oceanographic data. With this tool, you can:
 
 - Upload one or more JSON files containing vertical profile data.
 - Visualize temperature, salinity, and dissolved oxygen by depth.
@@ -13,7 +9,7 @@ With this tool, you can:
 
 This feature is designed for researchers, students, and ocean enthusiasts who wish to analyze and compare their own custom oceanographic data — especially data that follows the variable structure commonly used in Argo float observations.
 
-## Supported JSON Format
+### Supported JSON Format
 
 The JSON structure used in this tool is based on the variable naming conventions of Argo float profiles. Each uploaded file must be a JSON file with the following keys:
 
