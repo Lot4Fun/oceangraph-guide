@@ -41,13 +41,11 @@ All free features, plus:
 
 ### Usage guide
 
-- [Search](./docs/usage_guide/search.md)
+- [Search and Bookmark](./docs/usage_guide/search.md)
 - [θ-S Diagram](./docs/usage_guide/t_s_diagram.md)
+- [Clustering](./docs/usage_guide/clustering.md)
 - [Mixed Layer Depth (MLD)](./docs/usage_guide/mixed_layer_depth.md)
 - [Subsurface Oxygen Maximum (SOM)](./docs/usage_guide/subsurface_oxygen_maximum.md)
-- [Clustering](./docs/usage_guide/clustering.md)
-- Bookmark > [Filter Data](./docs/usage_guide/bookmark/filter_data.md)
-- Bookmark > [Profile Details](./docs/usage_guide/bookmark/profile_details.md)
 - Visual Lab > [Vertical Profiles](./docs/usage_guide/visual_lab/vertical_profiles.md)
 - Visual Lab > [Mode Water Analysis](./docs/usage_guide/visual_lab/mode_water_analysis.md)
 
