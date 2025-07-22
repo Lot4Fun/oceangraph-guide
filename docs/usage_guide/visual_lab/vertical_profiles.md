@@ -1,4 +1,4 @@
-# Vertical Profile Viewer
+## Vertical Profile Viewer
 
 The Vertical Profile Viewer is a feature of OceanGraph that allows you to visualize and compare vertical profiles of oceanographic data.
 
