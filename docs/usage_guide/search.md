@@ -2,59 +2,59 @@
 
 OceanGraph provides search capabilities to find Argo float profiles based on geographic, temporal, and data quality criteria.
 
-## Search Methods
+### Search Methods
 
-### Filter Data Panel
+#### Filter Data Panel
 
-#### Date Range
+1. Date Range
 
-- Available: October 1999 to present
-- Click date fields to select start and end dates
-- All times in UTC
+   - Available: October 1999 to present
+   - Click date fields to select start and end dates
+   - All times in UTC
 
-#### Geographic Bounds
+2. Geographic Bounds
 
-- Set by interacting with the map
-- Coordinates displayed with N/S/E/W format
+   - Set by interacting with the map
+   - Coordinates displayed with N/S/E/W format
 
-#### Data Quality
+3. Data Quality
 
-- "Only profiles with DO" checkbox for dissolved oxygen data
+   - "Only profiles with DO" checkbox for dissolved oxygen data
 
-#### Save Search Conditions
+4. Save Search Conditions
 
-> **Note:** Available to signed-in users only
+    > **Note:** Available to signed-in users only
 
-- Click save icon to save current search parameters
-- Automatic naming by date range
-- Access saved searches across sessions
+    - Click save icon to save current search parameters
+    - Automatic naming by date range
+    - Access saved searches across sessions
 
-### Profile Details Panel
+#### Profile Details Panel
 
-#### WMO ID Search
+1. WMO ID Search
 
-- Enter WMO ID and press Enter
-- Returns all profiles for that specific float
+   - Enter WMO ID and press Enter
+   - Returns all profiles for that specific float
 
-#### Profile Information
+2. Profile Information
 
-- WMO ID, Cycle Number, Date (UTC), Latitude, Longitude
+   - WMO ID, Cycle Number, Date (UTC), Latitude, Longitude
 
-#### Bookmark Profiles
+3. Bookmark Profiles
 
-> **Note:** Available to signed-in users only
+    > **Note:** Available to signed-in users only
 
-- Click bookmark icon to save profiles
-- Status indication prevents duplicates
-- Access bookmarks across sessions
+    - Click bookmark icon to save profiles
+    - Status indication prevents duplicates
+    - Access bookmarks across sessions
 
-## Search Results
+### Search Results
 
 - Result count notification
 - Profiles displayed as map markers
 - Click markers to view profile details
 
-## Tips
+### Tips
 
 1. Start with broad searches, then narrow down
 2. Use dissolved oxygen filter for biogeochemical studies
