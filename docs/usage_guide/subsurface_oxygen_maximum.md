@@ -4,7 +4,7 @@ OceanGraph calculates the subsurface oxygen maximum (SOM) for individual Argo fl
 
 1. Definition and Search Range
 
-    - The SOM is defined as the local maximum of dissolved oxygen concentration found within the subsurface layer, typically between 50 dbar and 300 dbar.
+    - The SOM is defined as the local maximum of dissolved oxygen concentration found within the subsurface layer, between the mixed layer depth + 5 dbar and 300 dbar.
     - The very shallow layers (e.g., 0–10 dbar) are excluded to avoid the influence of transient surface processes and ensure the detected maximum is truly subsurface.
 
 2. Identification of Local Maximum
