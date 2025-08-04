@@ -46,6 +46,7 @@ All free features, plus:
 - [Clustering](./docs/usage_guide/clustering.md)
 - [Mixed Layer Depth (MLD)](./docs/usage_guide/mixed_layer_depth.md)
 - [Subsurface Oxygen Maximum (SOM)](./docs/usage_guide/subsurface_oxygen_maximum.md)
+- Visual Lab > [Ocean Basins](./docs/usage_guide/visual_lab/ocean_basins.md)
 - Visual Lab > [Vertical Profiles](./docs/usage_guide/visual_lab/vertical_profiles.md)
 - Visual Lab > [Mode Water Analysis](./docs/usage_guide/visual_lab/mode_water_analysis.md)
 
