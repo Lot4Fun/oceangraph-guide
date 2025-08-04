@@ -1,6 +1,10 @@
 ## Mode Water Analysis
 
-The Mode Water Analysis feature displays the detection and time series visualization of mode water layers in Argo float profiles. This tool provides:
+The Mode Water Analysis feature displays the detection and time series visualization of mode water layers in Argo float profiles.
+
+![Mode Waters](../../../imgs/mode_waters.png)
+
+This tool provides:
 
 - Detection of mode water layers in profiles based on specified criteria
 - Count of profiles containing mode water by season
