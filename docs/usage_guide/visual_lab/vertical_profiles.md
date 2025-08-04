@@ -1,6 +1,10 @@
 ## Vertical Profile Viewer
 
-The Vertical Profile Viewer is a feature of OceanGraph that allows you to visualize and compare vertical profiles of oceanographic data. With this tool, you can:
+The Vertical Profile Viewer is a feature of OceanGraph that allows you to visualize and compare vertical profiles of oceanographic data.
+
+![Vertical Profiles](../../../imgs/vertical_profiles.png)
+
+With this tool, you can:
 
 - Upload one or more JSON files containing vertical profile data.
 - Visualize temperature, salinity, and dissolved oxygen by depth.

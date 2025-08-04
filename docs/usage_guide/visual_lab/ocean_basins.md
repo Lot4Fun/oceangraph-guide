@@ -4,6 +4,8 @@
 
 The Ocean Basins feature provides time series visualization of average temperature and salinity changes across the world's major ocean basins. This tool displays long-term oceanographic trends using Argo float data from 1998 to the present.
 
+![Ocean Basins](../../../imgs/ocean_basins.png)
+
 ### Ocean Basins Coverage
 
 The analysis covers five major ocean basins: North Pacific, South Pacific, North Atlantic, South Atlantic, and Indian Ocean. Each basin's data is analyzed separately to reveal regional trends.
