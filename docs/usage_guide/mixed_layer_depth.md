@@ -2,16 +2,20 @@
 
 OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential temperature (θ), using the Gibbs SeaWater (GSW) Oceanographic Toolbox for accurate thermodynamic calculations. This method follows a temperature threshold approach, which is commonly used in oceanographic studies.
 
-1. Potential Temperature Calculation
+1. Multi-Parameter Calculation
 
-   - MLD is determined from the vertical profile of potential temperature (θ), which is calculated using the GSW toolbox based on practical salinity, in-situ temperature, pressure, and latitude.
-   - This ensures high accuracy and consistency in the estimation of temperature-related stratification and mixed layer properties.
+   - MLD is determined using three different oceanographic parameters: potential temperature (θ), absolute salinity, and potential density (σθ).
+   - Potential temperature and density are calculated using the GSW toolbox based on practical salinity, in-situ temperature, pressure, and latitude.
+   - This ensures high accuracy and consistency in the estimation of stratification and mixed layer properties across different oceanographic conditions.
 
 2. MLD Definition and Threshold
 
-   - The MLD is defined as the shallowest depth at which the potential temperature (θ) differs by more than 0.1°C from its value at 10 dbar.
-   - This threshold-based method is widely adopted in oceanographic literature and provides a straightforward and robust way to estimate the depth of the surface mixed layer based on thermal structure.
-   - If no such depth is found in the profile, the MLD is considered undefined for that observation.
+   - The MLD is calculated using three different threshold criteria and defined as the shallowest depth among the three methods:
+     - **Temperature threshold (Δθ)**: Depth where potential temperature (θ) differs by more than 0.5°C from its value at 10 dbar
+     - **Salinity threshold (ΔSA)**: Depth where absolute salinity differs by more than 0.05 g/kg from its value at 10 dbar
+     - **Density threshold (Δσθ)**: Depth where potential density (σθ) differs by more than 0.125 kg/m³ from its value at 10 dbar
+   - This multi-parameter approach provides a more robust estimation of the mixed layer depth by considering both thermal and haline stratification.
+   - If no depth is found using any of the three criteria, the MLD is considered undefined for that observation.
 
 3. Data Quality Requirements
 
@@ -28,4 +32,4 @@ OceanGraph calculates the mixed layer depth (MLD) from individual Argo float pro
    - For visualizations such as maps, MLD values are mapped to colors using the reversed Viridis colormap (viridis_r in matplotlib), where shallow layers appear bright and deeper layers appear dark.
    - Profiles with missing or undefined MLD values are rendered in gray.
 
-This approach provides an accurate and consistent estimation of mixed layer depth across a wide range of Argo float profiles. It is particularly well-suited for visual analysis and regional comparisons based on temperature stratification.
+This approach provides an accurate and robust estimation of mixed layer depth across a wide range of Argo float profiles by utilizing multiple oceanographic parameters. The multi-threshold method ensures that the MLD estimation captures both thermal and haline stratification effects, making it particularly well-suited for visual analysis and regional comparisons in diverse oceanographic environments.
