@@ -44,6 +44,7 @@ All free features, plus:
 #### Searching and Analyzing Argo Floats
 
 - [Search and Bookmark](./docs/usage_guide/search.md)
+- [Trajectory and Time-Series Vertical Section](./docs/usage_guide/trajectory_and_time_series_vertical_section.md)
 - [θ-S Diagram](./docs/usage_guide/t_s_diagram.md)
 - [Clustering](./docs/usage_guide/clustering.md)
 - [Mixed Layer Depth (MLD)](./docs/usage_guide/mixed_layer_depth.md)
