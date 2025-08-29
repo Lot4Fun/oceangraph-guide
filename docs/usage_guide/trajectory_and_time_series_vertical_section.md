@@ -2,6 +2,8 @@
 
 This feature allows you to visualize Argo float data as a time-series vertical section, showing how oceanographic parameters change with depth and time along the float's trajectory. The vertical section provides a comprehensive view of the water column structure throughout the float's journey.
 
+![Trajectory and Time-Series Vertical Section](../../imgs/trajectory_and_vertical_section.png)
+
 ### Accessing Time-Series Vertical Sections
 
 To access time-series vertical sections of Argo float data, follow these steps:
