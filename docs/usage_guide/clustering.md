@@ -9,9 +9,9 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
 2. Depth Range & Interpolation
 
    - The depth range used for clustering is dynamically determined based on the input profiles:
-     - **Minimum depth**: Fixed at 200 dbar to suppress the effects of seasonal thermocline and surface forcing
-     - **Maximum depth**: Automatically set to the 25th percentile of maximum depths across all valid profiles
-     - The maximum depth is capped at 1000 dbar and will not go below the minimum depth of 200 dbar
+     - **Minimum depth**: Fixed at 200 dbar to suppress the effects of seasonal thermocline and surface forcing.
+     - **Maximum depth**: Automatically set to the 25th percentile of maximum depths across all valid profiles, then rounded down to the nearest 100 dbar increment.
+     - The maximum depth is capped at 1000 dbar and will not go below the minimum depth of 200 dbar.
    - If most of the selected profiles are shallow, the maximum depth threshold is adjusted downward to maximize data utilization.
    - Profiles are linearly interpolated every 100 dbar within this determined range to align them on a common vertical grid.
    - This adaptive approach ensures optimal clustering performance regardless of the depth characteristics of the selected profiles.
