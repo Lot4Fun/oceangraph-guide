@@ -2,6 +2,9 @@
 
 OceanGraph provides a beta feature that clusters Argo profiles based on their vertical structure using machine learning. This functionality is experimental and comes with the following limitations and processing steps:
 
+![Clustering example](../../../imgs/clustering.png)
+**Note:** Gray markers indicate profiles that were excluded from clustering.
+
 1. Profile Limit
 
    - To reduce server load and memory usage, clustering accepts a maximum of 500 valid profiles per job.
@@ -33,6 +36,3 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
    - The number of clusters (K) is selected automatically using a simplified elbow method (with a maximum of 8 clusters).
 
 This feature is available to **signed-in users only**. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.
-
-![Clustering example](../../../imgs/clustering.png)
-**Note:** Gray markers indicate profiles that were excluded from clustering.

@@ -366,6 +366,7 @@ D5906026_128.nc
 <div style="break-before: page; page-break-before: always;"></div><h1 id="search-and-bookmark"><a class="header" href="#search-and-bookmark">Search and Bookmark</a></h1>
 <p>OceanGraph provides search capabilities to find Argo float profiles based on geographic, temporal, and data quality criteria.</p>
 <h2 id="search-methods"><a class="header" href="#search-methods">Search Methods</a></h2>
+<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/search.png" alt="Search" /></p>
 <h3 id="filter-data-panel"><a class="header" href="#filter-data-panel">Filter Data Panel</a></h3>
 <ol>
 <li>
@@ -391,6 +392,7 @@ D5906026_128.nc
 </li>
 <li>
 <p>Save Search Conditions</p>
+<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/bookmark_filter_data.png" alt="Save Search" /></p>
 <blockquote>
 <p><strong>Note:</strong> Available to signed-in users only</p>
 </blockquote>
@@ -418,6 +420,7 @@ D5906026_128.nc
 </li>
 <li>
 <p>Bookmark Profiles</p>
+<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/bookmark_profile_details.png" alt="Bookmark Profile" /></p>
 <blockquote>
 <p><strong>Note:</strong> Available to signed-in users only</p>
 </blockquote>
@@ -499,6 +502,8 @@ D5906026_128.nc
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="clustering"><a class="header" href="#clustering">Clustering</a></h1>
 <p>OceanGraph provides a beta feature that clusters Argo profiles based on their vertical structure using machine learning. This functionality is experimental and comes with the following limitations and processing steps:</p>
+<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/clustering.png" alt="Clustering example" />
+<strong>Note:</strong> Gray markers indicate profiles that were excluded from clustering.</p>
 <ol>
 <li>
 <p>Profile Limit</p>
@@ -545,10 +550,9 @@ D5906026_128.nc
 </li>
 </ol>
 <p>This feature is available to <strong>signed-in users only</strong>. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.</p>
-<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/clustering.png" alt="Clustering example" />
-<strong>Note:</strong> Gray markers indicate profiles that were excluded from clustering.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mixed-layer-depth-mld"><a class="header" href="#mixed-layer-depth-mld">Mixed Layer Depth (MLD)</a></h1>
 <p>OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential temperature (θ), using the Gibbs SeaWater (GSW) Oceanographic Toolbox for accurate thermodynamic calculations. This method follows a temperature threshold approach, which is commonly used in oceanographic studies.</p>
+<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/mixed_layer_depth.png" alt="MLD" /></p>
 <ol>
 <li>
 <p>Multi-Parameter Calculation</p>
@@ -597,6 +601,7 @@ D5906026_128.nc
 <p>This approach provides an accurate and robust estimation of mixed layer depth across a wide range of Argo float profiles by utilizing multiple oceanographic parameters. The multi-threshold method ensures that the MLD estimation captures both thermal and haline stratification effects, making it particularly well-suited for visual analysis and regional comparisons in diverse oceanographic environments.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="subsurface-oxygen-maximum-som"><a class="header" href="#subsurface-oxygen-maximum-som">Subsurface Oxygen Maximum (SOM)</a></h1>
 <p>OceanGraph calculates the subsurface oxygen maximum (SOM) for individual Argo float profiles using dissolved oxygen and pressure (or depth) data. This metric is widely used in oceanography to characterize the vertical structure of oxygen, especially in subtropical and tropical regions, where a local maximum often appears just below the surface mixed layer.</p>
+<p><img src="app_guide/usage_guide/searching_and_analyzing_argo_floats/../../../imgs/subsurface_oxygen_maximum.png" alt="Subsurface Oxygen Maximum Example" /></p>
 <ol>
 <li>
 <p>Definition and Search Range</p>

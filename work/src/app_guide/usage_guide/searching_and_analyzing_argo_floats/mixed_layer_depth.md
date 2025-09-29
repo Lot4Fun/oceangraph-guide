@@ -2,6 +2,8 @@
 
 OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential temperature (θ), using the Gibbs SeaWater (GSW) Oceanographic Toolbox for accurate thermodynamic calculations. This method follows a temperature threshold approach, which is commonly used in oceanographic studies.
 
+![MLD](../../../imgs/mixed_layer_depth.png)
+
 1. Multi-Parameter Calculation
 
    - MLD is determined using three different oceanographic parameters: potential temperature (θ), absolute salinity, and potential density (σθ).
