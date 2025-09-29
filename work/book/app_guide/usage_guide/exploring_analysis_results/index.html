@@ -178,6 +178,119 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="exploring-analysis-results"><a class="header" href="#exploring-analysis-results">Exploring Analysis Results</a></h1>
+<h1 id="visual-lab"><a class="header" href="#visual-lab">Visual Lab</a></h1>
+<h1 id="ocean-basins"><a class="header" href="#ocean-basins">Ocean Basins</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>The Ocean Basins feature provides time series visualization of average temperature and salinity changes across the world's major ocean basins. This tool displays long-term oceanographic trends using Argo float data from 1998 to the present.</p>
+<p><img src="../../../../imgs/ocean_basins.png" alt="Ocean Basins" /></p>
+<h2 id="ocean-basins-coverage"><a class="header" href="#ocean-basins-coverage">Ocean Basins Coverage</a></h2>
+<p>The analysis covers five major ocean basins: North Pacific, South Pacific, North Atlantic, South Atlantic, and Indian Ocean. Each basin's data is analyzed separately to reveal regional trends.</p>
+<h2 id="data-visualization"><a class="header" href="#data-visualization">Data Visualization</a></h2>
+<h3 id="temperature-and-salinity-graphs"><a class="header" href="#temperature-and-salinity-graphs">Temperature and Salinity Graphs</a></h3>
+<p>The feature displays two main types of time series:</p>
+<ul>
+<li><strong>Average Temperature</strong>: Long-term trends in ocean potential temperature by basin</li>
+<li><strong>Average Salinity</strong>: Long-term trends in ocean absolute salinity by basin</li>
+</ul>
+<h3 id="data-parameters"><a class="header" href="#data-parameters">Data Parameters</a></h3>
+<ul>
+<li><strong>Temperature</strong>: Potential temperature (θ) values at 10 dbar depth</li>
+<li><strong>Salinity</strong>: Absolute salinity (SA) values at 10 dbar depth</li>
+</ul>
+<h3 id="time-period"><a class="header" href="#time-period">Time Period</a></h3>
+<ul>
+<li><strong>Coverage</strong>: 1998 to present year</li>
+<li><strong>Data Source</strong>: Argo float profile measurements interpolated using the Akima method</li>
+<li><strong>Temporal Resolution</strong>: Annual</li>
+</ul>
+<h3 id="profile-count-display"><a class="header" href="#profile-count-display">Profile Count Display</a></h3>
+<p>The visualization includes an additional bar chart showing:</p>
+<ul>
+<li><strong>Annual Profile Count</strong>: Number of Argo profiles used each year for each basin</li>
+</ul>
+<p>This profile count chart helps users understand data density and reliability over time.</p>
+<h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<p>This tool is useful for:</p>
+<ul>
+<li>Understanding regional ocean climate variations</li>
+<li>Identifying long-term trends in ocean temperature and salinity</li>
+<li>Comparing oceanographic changes between different basins</li>
+<li>Educational purposes and oceanographic research</li>
+</ul>
+<h1 id="mode-water-analysis"><a class="header" href="#mode-water-analysis">Mode Water Analysis</a></h1>
+<p>The Mode Water Analysis feature displays the detection and time series visualization of mode water layers in Argo float profiles.</p>
+<p><img src="../../../../imgs/mode_waters.png" alt="Mode Waters" /></p>
+<p>This tool provides:</p>
+<ul>
+<li>Detection of mode water layers in profiles based on specified criteria</li>
+<li>Count of profiles containing mode water by season</li>
+<li>Time series visualization of mode water thickness trends</li>
+<li>Statistical display of thickness values (median and quartiles)</li>
+</ul>
+<h2 id="detection-criteria"><a class="header" href="#detection-criteria">Detection Criteria</a></h2>
+<p>Mode water detection uses criteria displayed on the screen (latitude/longitude bounds, density range, potential vorticity threshold, and minimum thickness).</p>
+<h2 id="results-display"><a class="header" href="#results-display">Results Display</a></h2>
+<p>The panel displays:</p>
+<ul>
+<li><strong>Total Profiles</strong>: Number of profiles containing detected mode water layers</li>
+<li><strong>Mean Thickness</strong>: Average thickness of detected mode water layers</li>
+</ul>
+<h2 id="graphs"><a class="header" href="#graphs">Graphs</a></h2>
+<h3 id="time-series-graph"><a class="header" href="#time-series-graph">Time Series Graph</a></h3>
+<p>Displays mode water thickness over time:</p>
+<ul>
+<li><strong>Median Thickness</strong>: 50th percentile (solid blue line)</li>
+<li><strong>Lower Quartile</strong>: 25th percentile (dashed gray line)</li>
+<li><strong>Upper Quartile</strong>: 75th percentile (dashed gray line)</li>
+<li><strong>Time Scale</strong>: Seasonal data from 2001 onwards</li>
+</ul>
+<h3 id="profile-count-graph"><a class="header" href="#profile-count-graph">Profile Count Graph</a></h3>
+<p>Shows the number of profiles containing mode water:</p>
+<ul>
+<li><strong>Blue Bars</strong>: Number of profiles per season</li>
+<li><strong>Time Scale</strong>: Seasonal data from 2001 onwards</li>
+</ul>
+<h2 id="data-processing"><a class="header" href="#data-processing">Data Processing</a></h2>
+<h3 id="quality-control"><a class="header" href="#quality-control">Quality Control</a></h3>
+<p>The analysis applies strict quality control measures to ensure reliable results:</p>
+<ol>
+<li>
+<p>Geographic Filtering</p>
+<ul>
+<li>Only profiles within the specified target region are analyzed</li>
+<li>Profiles outside the geographic bounds are excluded</li>
+</ul>
+</li>
+<li>
+<p>Profile Depth Requirements</p>
+<ul>
+<li>Minimum profile depth: 500 dbar (approximately 500m)</li>
+<li>Profiles that are too shallow are excluded from analysis</li>
+</ul>
+</li>
+<li>
+<p>Data Completeness</p>
+<ul>
+<li>Minimum 10 valid data points required per profile (temperature, salinity, pressure)</li>
+<li>Minimum 5 valid density data points required for mode water calculation</li>
+<li>Minimum 3 valid data points required for potential vorticity calculation</li>
+<li>Profiles with insufficient temperature, salinity, or pressure data are excluded</li>
+<li>Missing or invalid data points are removed before analysis</li>
+<li>Mode water layers must be ≥10m thickness to be included in analysis</li>
+</ul>
+</li>
+</ol>
+<h3 id="seasonal-grouping"><a class="header" href="#seasonal-grouping">Seasonal Grouping</a></h3>
+<p>Data is grouped by meteorological seasons:</p>
+<ul>
+<li>Winter: December, January, February</li>
+<li>Spring: March, April, May</li>
+<li>Summer: June, July, August</li>
+<li>Autumn: September, October, November</li>
+</ul>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<p>Mode waters are water masses characterized by weak vertical gradients in temperature and salinity, forming relatively uniform layers. They are created by deep winter mixed layers and play important roles in ocean circulation.</p>
+<p>This feature displays basic statistics and time series of detected mode water layers in the specified region.</p>
 
                     </main>
 
