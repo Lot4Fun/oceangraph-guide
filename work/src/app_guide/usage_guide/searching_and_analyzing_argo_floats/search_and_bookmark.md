@@ -4,6 +4,8 @@ OceanGraph provides search capabilities to find Argo float profiles based on geo
 
 ## Search Methods
 
+![Search](../../../imgs/search.png)
+
 ### Filter Data Panel
 
 1. Date Range
@@ -23,6 +25,8 @@ OceanGraph provides search capabilities to find Argo float profiles based on geo
 
 4. Save Search Conditions
 
+   ![Save Search](../../../imgs/bookmark_filter_data.png)
+
     > **Note:** Available to signed-in users only
 
     - Click save icon to save current search parameters
@@ -41,6 +45,8 @@ OceanGraph provides search capabilities to find Argo float profiles based on geo
    - WMO ID, Cycle Number, Date (UTC), Latitude, Longitude
 
 3. Bookmark Profiles
+
+   ![Bookmark Profile](../../../imgs/bookmark_profile_details.png)
 
     > **Note:** Available to signed-in users only
 
