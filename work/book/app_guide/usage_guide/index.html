@@ -178,6 +178,422 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="usage-guide"><a class="header" href="#usage-guide">Usage guide</a></h1>
+<h1 id="searching-and-analyzing-argo-floats"><a class="header" href="#searching-and-analyzing-argo-floats">Searching and Analyzing Argo Floats</a></h1>
+<h1 id="search-and-bookmark"><a class="header" href="#search-and-bookmark">Search and Bookmark</a></h1>
+<p>OceanGraph provides search capabilities to find Argo float profiles based on geographic, temporal, and data quality criteria.</p>
+<h2 id="search-methods"><a class="header" href="#search-methods">Search Methods</a></h2>
+<p><img src="../../../imgs/search.png" alt="Search" /></p>
+<h3 id="filter-data-panel"><a class="header" href="#filter-data-panel">Filter Data Panel</a></h3>
+<ol>
+<li>
+<p>Date Range</p>
+<ul>
+<li>Available: October 1999 to present</li>
+<li>Click date fields to select start and end dates</li>
+<li>All times in UTC</li>
+</ul>
+</li>
+<li>
+<p>Geographic Bounds</p>
+<ul>
+<li>Set by interacting with the map</li>
+<li>Coordinates displayed with N/S/E/W format</li>
+</ul>
+</li>
+<li>
+<p>Data Quality</p>
+<ul>
+<li>"Only profiles with DO" checkbox for dissolved oxygen data</li>
+</ul>
+</li>
+<li>
+<p>Save Search Conditions</p>
+<p><img src="../../../imgs/bookmark_filter_data.png" alt="Save Search" /></p>
+<blockquote>
+<p><strong>Note:</strong> Available to signed-in users only</p>
+</blockquote>
+<ul>
+<li>Click save icon to save current search parameters</li>
+<li>Automatic naming by date range</li>
+<li>Access saved searches across sessions</li>
+</ul>
+</li>
+</ol>
+<h3 id="profile-details-panel"><a class="header" href="#profile-details-panel">Profile Details Panel</a></h3>
+<ol>
+<li>
+<p>WMO ID Search</p>
+<ul>
+<li>Enter WMO ID and press Enter</li>
+<li>Returns all profiles for that specific float</li>
+</ul>
+</li>
+<li>
+<p>Profile Information</p>
+<ul>
+<li>WMO ID, Cycle Number, Date (UTC), Latitude, Longitude</li>
+</ul>
+</li>
+<li>
+<p>Bookmark Profiles</p>
+<p><img src="../../../imgs/bookmark_profile_details.png" alt="Bookmark Profile" /></p>
+<blockquote>
+<p><strong>Note:</strong> Available to signed-in users only</p>
+</blockquote>
+<ul>
+<li>Click bookmark icon to save profiles</li>
+<li>Status indication prevents duplicates</li>
+<li>Access bookmarks across sessions</li>
+</ul>
+</li>
+</ol>
+<h2 id="search-results"><a class="header" href="#search-results">Search Results</a></h2>
+<ul>
+<li>Result count notification</li>
+<li>Profiles displayed as map markers</li>
+<li>Click markers to view profile details</li>
+</ul>
+<h2 id="tips"><a class="header" href="#tips">Tips</a></h2>
+<ol>
+<li>Start with broad searches, then narrow down</li>
+<li>Use dissolved oxygen filter for biogeochemical studies</li>
+<li>Save frequently used search patterns</li>
+<li>Bookmark important profiles for future reference</li>
+</ol>
+<h1 id="trajectory-and-time-series-vertical-section"><a class="header" href="#trajectory-and-time-series-vertical-section">Trajectory and Time-Series Vertical Section</a></h1>
+<p>This feature allows you to visualize Argo float data as a time-series vertical section, showing how oceanographic parameters change with depth and time along the float's trajectory. The vertical section provides a comprehensive view of the water column structure throughout the float's journey.</p>
+<p><img src="../../../imgs/trajectory_and_vertical_section.png" alt="Trajectory and Time-Series Vertical Section" /></p>
+<h2 id="accessing-time-series-vertical-sections"><a class="header" href="#accessing-time-series-vertical-sections">Accessing Time-Series Vertical Sections</a></h2>
+<p>To access time-series vertical sections of Argo float data, follow these steps:</p>
+<ol>
+<li><strong>Select a Float</strong>: Start by selecting an Argo float from the search results or the map view.</li>
+<li><strong>Turn on Trajectory mode</strong>: Turn on the "Trajectory Mode" button to display the vertical section view.</li>
+<li><strong>Show vertical section</strong>: Click on the "View Section" button to view the time-series data for the selected float.</li>
+</ol>
+<h2 id="tips-1"><a class="header" href="#tips-1">Tips</a></h2>
+<ul>
+<li>The vertical section is linked with the vertical profiles in Profile Details, and the position of the selected profile is shown with a dashed line.</li>
+<li>Missing data areas indicate locations where data did not pass quality control (QC).</li>
+</ul>
+<h1 id="θ-s-diagram"><a class="header" href="#θ-s-diagram">θ-S Diagram</a></h1>
+<p>The θ-S diagram feature allows you to visualize potential temperature-absolute salinity relationships of Argo float profiles in the current search area.</p>
+<p><img src="../../../imgs/t-s_diagram.png" alt="θ-S Diagram" /></p>
+<h2 id="accessing-θ-s-diagram"><a class="header" href="#accessing-θ-s-diagram">Accessing θ-S Diagram</a></h2>
+<p>The θ-S diagram is available to logged-in users only.</p>
+<ol>
+<li>After performing a search, click the <strong>View θ-S</strong> button in the top-right corner of the map</li>
+<li>The system will generate a θ-S diagram based on the current search results</li>
+<li>The diagram appears as an overlay on the map</li>
+</ol>
+<h2 id="profile-limit"><a class="header" href="#profile-limit">Profile Limit</a></h2>
+<ul>
+<li>Maximum 500 profiles can be used to generate a θ-S diagram</li>
+<li>If your search contains more than 500 profiles, an error message will appear</li>
+<li>Narrow your search criteria to reduce the number of profiles</li>
+</ul>
+<h2 id="θ-s-diagram-display"><a class="header" href="#θ-s-diagram-display">θ-S Diagram Display</a></h2>
+<h3 id="background-chart"><a class="header" href="#background-chart">Background Chart</a></h3>
+<ul>
+<li>Shows potential temperature (vertical axis) vs absolute salinity (horizontal axis) relationships</li>
+<li>Displays density contour lines and water mass boundaries</li>
+</ul>
+<h3 id="selected-profile-line"><a class="header" href="#selected-profile-line">Selected Profile Line</a></h3>
+<ul>
+<li>When you select a float on the map, its temperature-salinity profile is highlighted</li>
+<li>Appears as a colored line overlaying the background chart</li>
+<li>Updates automatically when you select different floats</li>
+</ul>
+<h2 id="tips-2"><a class="header" href="#tips-2">Tips</a></h2>
+<ul>
+<li>Use it to identify different water masses and their characteristics</li>
+<li>The diagram helps understand the oceanographic context of your selected profiles</li>
+</ul>
+<h2 id="background"><a class="header" href="#background">Background</a></h2>
+<p>A θ-S diagram (Temperature-Salinity diagram) is a fundamental tool in oceanography for:</p>
+<ul>
+<li>Identifying water masses and their properties</li>
+<li>Understanding mixing processes between different water types</li>
+<li>Analyzing the vertical structure of the water column</li>
+<li>Detecting seasonal and regional variations in ocean properties</li>
+</ul>
+<h1 id="clustering"><a class="header" href="#clustering">Clustering</a></h1>
+<p>OceanGraph provides a beta feature that clusters Argo profiles based on their vertical structure using machine learning. This functionality is experimental and comes with the following limitations and processing steps:</p>
+<p><img src="../../../imgs/clustering.png" alt="Clustering example" />
+<strong>Note:</strong> Gray markers indicate profiles that were excluded from clustering.</p>
+<ol>
+<li>
+<p>Profile Limit</p>
+<ul>
+<li>To reduce server load and memory usage, clustering accepts a maximum of 500 valid profiles per job.</li>
+</ul>
+</li>
+<li>
+<p>Depth Range &amp; Interpolation</p>
+<ul>
+<li>The depth range used for clustering is dynamically determined based on the input profiles:
+<ul>
+<li><strong>Minimum depth</strong>: Fixed at 200 dbar to suppress the effects of seasonal thermocline and surface forcing.</li>
+<li><strong>Maximum depth</strong>: Automatically set to the 25th percentile of maximum depths across all valid profiles, then rounded down to the nearest 100 dbar increment.</li>
+<li>The maximum depth is capped at 1000 dbar and will not go below the minimum depth of 200 dbar.</li>
+</ul>
+</li>
+<li>If most of the selected profiles are shallow, the maximum depth threshold is adjusted downward to maximize data utilization.</li>
+<li>Profiles are linearly interpolated every 100 dbar within this determined range to align them on a common vertical grid.</li>
+<li>This adaptive approach ensures optimal clustering performance regardless of the depth characteristics of the selected profiles.</li>
+</ul>
+</li>
+<li>
+<p>Required Variables</p>
+<ul>
+<li>Only profiles containing valid temperature and salinity data are considered.</li>
+<li>Profiles missing these variables or lacking coverage in the specified depth range are excluded.</li>
+</ul>
+</li>
+<li>
+<p>Clustering Feature Vector</p>
+<ul>
+<li>Clustering is based on a feature vector composed of interpolated temperature and salinity values, combined with location data.</li>
+<li>Temperature and salinity vectors are standardized using z-score normalization at each depth level to ensure that variations at all depths contribute equally to the clustering process.</li>
+<li>Latitude is included as an additional feature, normalized by linear scaling from -90 to 90 degrees into a range of -1 to 1.</li>
+<li>Longitude is transformed into two features using its sine and cosine values (i.e., sin(λ), cos(λ)), allowing for circular continuity around the ±180° meridian without further normalization.</li>
+</ul>
+</li>
+<li>
+<p>Automatic K Determination</p>
+<ul>
+<li>The number of clusters (K) is selected automatically using a simplified elbow method (with a maximum of 8 clusters).</li>
+</ul>
+</li>
+</ol>
+<p>This feature is available to <strong>signed-in users only</strong>. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.</p>
+<h1 id="mixed-layer-depth-mld"><a class="header" href="#mixed-layer-depth-mld">Mixed Layer Depth (MLD)</a></h1>
+<p>OceanGraph calculates the mixed layer depth (MLD) from individual Argo float profiles based on potential temperature (θ), using the Gibbs SeaWater (GSW) Oceanographic Toolbox for accurate thermodynamic calculations. This method follows a temperature threshold approach, which is commonly used in oceanographic studies.</p>
+<p><img src="../../../imgs/mixed_layer_depth.png" alt="MLD" /></p>
+<ol>
+<li>
+<p>Multi-Parameter Calculation</p>
+<ul>
+<li>MLD is determined using three different oceanographic parameters: potential temperature (θ), absolute salinity, and potential density (σθ).</li>
+<li>Potential temperature and density are calculated using the GSW toolbox based on practical salinity, in-situ temperature, pressure, and latitude.</li>
+<li>This ensures high accuracy and consistency in the estimation of stratification and mixed layer properties across different oceanographic conditions.</li>
+</ul>
+</li>
+<li>
+<p>MLD Definition and Threshold</p>
+<ul>
+<li>The MLD is calculated using three different threshold criteria and defined as the shallowest depth among the three methods:
+<ul>
+<li><strong>Temperature threshold (Δθ)</strong>: Depth where potential temperature (θ) differs by more than 0.5°C from its value at 10 dbar</li>
+<li><strong>Salinity threshold (ΔSA)</strong>: Depth where absolute salinity differs by more than 0.05 g/kg from its value at 10 dbar</li>
+<li><strong>Density threshold (Δσθ)</strong>: Depth where potential density (σθ) differs by more than 0.125 kg/m³ from its value at 10 dbar</li>
+</ul>
+</li>
+<li>This multi-parameter approach provides a more robust estimation of the mixed layer depth by considering both thermal and haline stratification.</li>
+<li>If no depth is found using any of the three criteria, the MLD is considered undefined for that observation.</li>
+</ul>
+</li>
+<li>
+<p>Data Quality Requirements</p>
+<ul>
+<li><strong>Reference Depth Coverage</strong>: The reference depth (10 dbar) must be within the measured pressure range of the profile. If the reference depth falls outside the available data range, MLD calculation is skipped for that profile.</li>
+<li><strong>Shallow Data Availability</strong>: A minimum of 3 data points at or above 50 dbar is required for reliable MLD calculation. Profiles with insufficient shallow measurements are excluded from MLD computation to ensure accuracy.</li>
+</ul>
+</li>
+<li>
+<p>Conversion to Depth</p>
+<ul>
+<li>The estimated MLD (in decibars) is converted into physical depth (in meters) using a latitude-dependent algorithm from the UNESCO 1983 standard.</li>
+<li>This conversion allows MLD values to be spatially visualized or regionally compared using consistent units.</li>
+</ul>
+</li>
+<li>
+<p>Color Representation</p>
+<ul>
+<li>For visualizations such as maps, MLD values are mapped to colors using the reversed Viridis colormap (viridis_r in matplotlib), where shallow layers appear bright and deeper layers appear dark.</li>
+<li>Profiles with missing or undefined MLD values are rendered in gray.</li>
+</ul>
+</li>
+</ol>
+<p>This approach provides an accurate and robust estimation of mixed layer depth across a wide range of Argo float profiles by utilizing multiple oceanographic parameters. The multi-threshold method ensures that the MLD estimation captures both thermal and haline stratification effects, making it particularly well-suited for visual analysis and regional comparisons in diverse oceanographic environments.</p>
+<h1 id="subsurface-oxygen-maximum-som"><a class="header" href="#subsurface-oxygen-maximum-som">Subsurface Oxygen Maximum (SOM)</a></h1>
+<p>OceanGraph calculates the subsurface oxygen maximum (SOM) for individual Argo float profiles using dissolved oxygen and pressure (or depth) data. This metric is widely used in oceanography to characterize the vertical structure of oxygen, especially in subtropical and tropical regions, where a local maximum often appears just below the surface mixed layer.</p>
+<p><img src="../../../imgs/subsurface_oxygen_maximum.png" alt="Subsurface Oxygen Maximum Example" /></p>
+<ol>
+<li>
+<p>Definition and Search Range</p>
+<ul>
+<li>The SOM is defined as the local maximum of dissolved oxygen concentration found within the subsurface layer, between the mixed layer depth + 5 dbar and 300 dbar.</li>
+<li>The very shallow layers (e.g., 0–10 dbar) are excluded to avoid the influence of transient surface processes and ensure the detected maximum is truly subsurface.</li>
+</ul>
+</li>
+<li>
+<p>Identification of Local Maximum</p>
+<ul>
+<li>Within the specified pressure range, the oxygen profile is scanned for local maxima, defined as points where the dissolved oxygen concentration is greater than at both adjacent pressure levels.</li>
+<li>If multiple local maxima are present, the one with the highest oxygen concentration is selected as the SOM.</li>
+</ul>
+</li>
+<li>
+<p>Fallback if No Local Maximum Exists</p>
+<ul>
+<li>If no local maximum exists within the subsurface layer (e.g., if the profile is monotonic), the single highest dissolved oxygen concentration within this range is selected as the SOM.</li>
+</ul>
+</li>
+<li>
+<p>Output</p>
+<ul>
+<li>The pressure (or depth) and the corresponding dissolved oxygen concentration of the SOM are recorded for each profile.</li>
+<li>If no valid SOM can be identified (e.g., due to insufficient data points), the SOM is considered undefined for that observation.</li>
+</ul>
+</li>
+</ol>
+<h1 id="exploring-analysis-results"><a class="header" href="#exploring-analysis-results">Exploring Analysis Results</a></h1>
+<h1 id="visual-lab"><a class="header" href="#visual-lab">Visual Lab</a></h1>
+<h1 id="ocean-basins"><a class="header" href="#ocean-basins">Ocean Basins</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>The Ocean Basins feature provides time series visualization of average temperature and salinity changes across the world's major ocean basins. This tool displays long-term oceanographic trends using Argo float data from 1998 to the present.</p>
+<p><img src="../../../../imgs/ocean_basins.png" alt="Ocean Basins" /></p>
+<h2 id="ocean-basins-coverage"><a class="header" href="#ocean-basins-coverage">Ocean Basins Coverage</a></h2>
+<p>The analysis covers five major ocean basins: North Pacific, South Pacific, North Atlantic, South Atlantic, and Indian Ocean. Each basin's data is analyzed separately to reveal regional trends.</p>
+<h2 id="data-visualization"><a class="header" href="#data-visualization">Data Visualization</a></h2>
+<h3 id="temperature-and-salinity-graphs"><a class="header" href="#temperature-and-salinity-graphs">Temperature and Salinity Graphs</a></h3>
+<p>The feature displays two main types of time series:</p>
+<ul>
+<li><strong>Average Temperature</strong>: Long-term trends in ocean potential temperature by basin</li>
+<li><strong>Average Salinity</strong>: Long-term trends in ocean absolute salinity by basin</li>
+</ul>
+<h3 id="data-parameters"><a class="header" href="#data-parameters">Data Parameters</a></h3>
+<ul>
+<li><strong>Temperature</strong>: Potential temperature (θ) values at 10 dbar depth</li>
+<li><strong>Salinity</strong>: Absolute salinity (SA) values at 10 dbar depth</li>
+</ul>
+<h3 id="time-period"><a class="header" href="#time-period">Time Period</a></h3>
+<ul>
+<li><strong>Coverage</strong>: 1998 to present year</li>
+<li><strong>Data Source</strong>: Argo float profile measurements interpolated using the Akima method</li>
+<li><strong>Temporal Resolution</strong>: Annual</li>
+</ul>
+<h3 id="profile-count-display"><a class="header" href="#profile-count-display">Profile Count Display</a></h3>
+<p>The visualization includes an additional bar chart showing:</p>
+<ul>
+<li><strong>Annual Profile Count</strong>: Number of Argo profiles used each year for each basin</li>
+</ul>
+<p>This profile count chart helps users understand data density and reliability over time.</p>
+<h2 id="applications"><a class="header" href="#applications">Applications</a></h2>
+<p>This tool is useful for:</p>
+<ul>
+<li>Understanding regional ocean climate variations</li>
+<li>Identifying long-term trends in ocean temperature and salinity</li>
+<li>Comparing oceanographic changes between different basins</li>
+<li>Educational purposes and oceanographic research</li>
+</ul>
+<h1 id="mode-water-analysis"><a class="header" href="#mode-water-analysis">Mode Water Analysis</a></h1>
+<p>The Mode Water Analysis feature displays the detection and time series visualization of mode water layers in Argo float profiles.</p>
+<p><img src="../../../../imgs/mode_waters.png" alt="Mode Waters" /></p>
+<p>This tool provides:</p>
+<ul>
+<li>Detection of mode water layers in profiles based on specified criteria</li>
+<li>Count of profiles containing mode water by season</li>
+<li>Time series visualization of mode water thickness trends</li>
+<li>Statistical display of thickness values (median and quartiles)</li>
+</ul>
+<h2 id="detection-criteria"><a class="header" href="#detection-criteria">Detection Criteria</a></h2>
+<p>Mode water detection uses criteria displayed on the screen (latitude/longitude bounds, density range, potential vorticity threshold, and minimum thickness).</p>
+<h2 id="results-display"><a class="header" href="#results-display">Results Display</a></h2>
+<p>The panel displays:</p>
+<ul>
+<li><strong>Total Profiles</strong>: Number of profiles containing detected mode water layers</li>
+<li><strong>Mean Thickness</strong>: Average thickness of detected mode water layers</li>
+</ul>
+<h2 id="graphs"><a class="header" href="#graphs">Graphs</a></h2>
+<h3 id="time-series-graph"><a class="header" href="#time-series-graph">Time Series Graph</a></h3>
+<p>Displays mode water thickness over time:</p>
+<ul>
+<li><strong>Median Thickness</strong>: 50th percentile (solid blue line)</li>
+<li><strong>Lower Quartile</strong>: 25th percentile (dashed gray line)</li>
+<li><strong>Upper Quartile</strong>: 75th percentile (dashed gray line)</li>
+<li><strong>Time Scale</strong>: Seasonal data from 2001 onwards</li>
+</ul>
+<h3 id="profile-count-graph"><a class="header" href="#profile-count-graph">Profile Count Graph</a></h3>
+<p>Shows the number of profiles containing mode water:</p>
+<ul>
+<li><strong>Blue Bars</strong>: Number of profiles per season</li>
+<li><strong>Time Scale</strong>: Seasonal data from 2001 onwards</li>
+</ul>
+<h2 id="data-processing"><a class="header" href="#data-processing">Data Processing</a></h2>
+<h3 id="quality-control"><a class="header" href="#quality-control">Quality Control</a></h3>
+<p>The analysis applies strict quality control measures to ensure reliable results:</p>
+<ol>
+<li>
+<p>Geographic Filtering</p>
+<ul>
+<li>Only profiles within the specified target region are analyzed</li>
+<li>Profiles outside the geographic bounds are excluded</li>
+</ul>
+</li>
+<li>
+<p>Profile Depth Requirements</p>
+<ul>
+<li>Minimum profile depth: 500 dbar (approximately 500m)</li>
+<li>Profiles that are too shallow are excluded from analysis</li>
+</ul>
+</li>
+<li>
+<p>Data Completeness</p>
+<ul>
+<li>Minimum 10 valid data points required per profile (temperature, salinity, pressure)</li>
+<li>Minimum 5 valid density data points required for mode water calculation</li>
+<li>Minimum 3 valid data points required for potential vorticity calculation</li>
+<li>Profiles with insufficient temperature, salinity, or pressure data are excluded</li>
+<li>Missing or invalid data points are removed before analysis</li>
+<li>Mode water layers must be ≥10m thickness to be included in analysis</li>
+</ul>
+</li>
+</ol>
+<h3 id="seasonal-grouping"><a class="header" href="#seasonal-grouping">Seasonal Grouping</a></h3>
+<p>Data is grouped by meteorological seasons:</p>
+<ul>
+<li>Winter: December, January, February</li>
+<li>Spring: March, April, May</li>
+<li>Summer: June, July, August</li>
+<li>Autumn: September, October, November</li>
+</ul>
+<h2 id="background-1"><a class="header" href="#background-1">Background</a></h2>
+<p>Mode waters are water masses characterized by weak vertical gradients in temperature and salinity, forming relatively uniform layers. They are created by deep winter mixed layers and play important roles in ocean circulation.</p>
+<p>This feature displays basic statistics and time series of detected mode water layers in the specified region.</p>
+<h1 id="performing-custom-analysis"><a class="header" href="#performing-custom-analysis">Performing Custom Analysis</a></h1>
+<h1 id="analysis-lab"><a class="header" href="#analysis-lab">Analysis Lab</a></h1>
+<h1 id="vertical-profiles"><a class="header" href="#vertical-profiles">Vertical Profiles</a></h1>
+<p>The Vertical Profile Viewer is a feature of OceanGraph that allows you to visualize and compare vertical profiles of oceanographic data.</p>
+<p><img src="../../../../imgs/vertical_profiles.png" alt="Vertical Profiles" /></p>
+<p>With this tool, you can:</p>
+<ul>
+<li>Upload one or more JSON files containing vertical profile data.</li>
+<li>Visualize temperature, salinity, and dissolved oxygen by depth.</li>
+<li>Add brief notes for each uploaded profile.</li>
+<li>Download the annotated charts as images for sharing or further analysis.</li>
+</ul>
+<p>This feature is designed for researchers, students, and ocean enthusiasts who wish to analyze and compare their own custom oceanographic data — especially data that follows the variable structure commonly used in Argo float observations.</p>
+<h2 id="supported-json-format"><a class="header" href="#supported-json-format">Supported JSON Format</a></h2>
+<p>The JSON structure used in this tool is based on the variable naming conventions of Argo float profiles. Each uploaded file must be a JSON file with the following keys:</p>
+<pre><code class="language-json">{
+  "pressure": [ ... ],
+  "potential_temperature": [ ... ],
+  "absolute_salinity": [ ... ],
+  "oxygen": [ ... ],
+  "wmo_id": "2902447",
+  "cycle_number": 17
+}
+</code></pre>
+<ul>
+<li><code>"pressure"</code>: array of numbers (required, must not be empty)</li>
+<li><code>"potential_temperature"</code>: array of numbers (same length as <code>pressure</code>, if present)</li>
+<li><code>"absolute_salinity"</code>: array of numbers (same length as <code>pressure</code>, if present)</li>
+<li><code>"oxygen"</code>: array of numbers (same length as <code>pressure</code>, if present)</li>
+<li><code>"wmo_id"</code>: string (required)</li>
+<li><code>"cycle_number"</code>: number (required)</li>
+</ul>
+<p>Any additional keys will be ignored. Files that do not follow the required structure or fail validation will be skipped during upload.</p>
 
                     </main>
 

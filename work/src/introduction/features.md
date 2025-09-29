@@ -26,3 +26,7 @@ All free features, plus:
 - Browse mode water analysis results
 
 **(*) Titles can contain up to 64 characters, and notes up to 200 characters.**
+
+![OceanGraph Example2](../imgs/t-s_diagram.png)
+
+![OceanGraph Example3](../imgs/mode_waters.png)
