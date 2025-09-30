@@ -34,5 +34,3 @@ OceanGraph provides a beta feature that clusters Argo profiles based on their ve
 5. Automatic K Determination
 
    - The number of clusters (K) is selected automatically using a simplified elbow method (with a maximum of 8 clusters).
-
-This feature is available to **signed-in users only**. While we are actively improving this system, unexpected results or limitations may occur. We appreciate your understanding during this beta period.
