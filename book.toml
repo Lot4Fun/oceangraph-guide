@@ -1,0 +1,20 @@
+[book]
+title = "OceanGraph App Guide"
+author = ""
+language = "en"
+
+command = "mdbook-mermaid"
+
+[output]
+[output.html]
+default-theme = "light"
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+mathjax-support = true
+
+[preprocessor]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+[preprocessor.include]
