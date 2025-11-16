@@ -66,3 +66,4 @@ OceanGraph provides search capabilities to find Argo float profiles based on geo
 2. Use dissolved oxygen filter for biogeochemical studies
 3. Save frequently used search patterns
 4. Bookmark important profiles for future reference
+5. **Rate Limits**: Signed-in users enjoy higher rate limits. If you experience access restrictions, consider creating a free account for uninterrupted access.

@@ -8,6 +8,8 @@
 - Track individual float trajectories
 - Visualize time-series vertical sections of Argo float data
 
+**Note:** To prevent server overload, anonymous users are subject to request rate limits. If you experience rate limit restrictions, creating a free account and signing in will provide more generous rate limits for uninterrupted access.
+
 ## For signed-in users
 
 All free features, plus:
