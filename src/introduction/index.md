@@ -18,5 +18,3 @@ OceanGraph is not a replacement for numerical analysis or scripting.
 It is designed to support early-stage exploration and interpretation, not to produce final results for publication.
 
 ![OceanGraph Example1](../imgs/clustering.png)
-
-{{#include ./features.md}}
