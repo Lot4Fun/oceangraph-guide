@@ -16,7 +16,7 @@ Understand the data behind OceanGraph:
 
 Data is updated weekly, with approximately one week's worth of new data typically added every weekend. Updates are announced on X (Twitter) at [@OceanGraphJP](https://x.com/OceanGraphJP).
 
-### [Usage Guide](./usage_guide/index.md)
+### [Usage Guide](./usage_guide/overview.md)
 
 Learn how to use OceanGraph's main features:
 
