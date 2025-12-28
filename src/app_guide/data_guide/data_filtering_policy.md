@@ -18,14 +18,15 @@ Only profiles that include all of the following variables are used:
 - `JULD_QC`
 - `LATITUDE`
 - `LONGITUDE`
-- `PRES_ADJUSTED`
-- `PRES_ADJUSTED_QC`
-- `TEMP_ADJUSTED`
-- `TEMP_ADJUSTED_QC`
-- `PSAL_ADJUSTED`
-- `PSAL_ADJUSTED_QC`
+- `POSITION_QC`
+- `PRES`
+- `PRES_QC`
+- `TEMP`
+- `TEMP_QC`
+- `PSAL`
+- `PSAL_QC`
 
-**Note:** If all `_ADJUSTED` data values are NaN, the system automatically falls back to the corresponding non-adjusted data (see section 4 for details).
+**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are optional. When they exist and at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 4 for details).
 
 ## 3. Date and position quality control
 
@@ -56,13 +57,18 @@ D5906026_128.nc
  [7.7466 7.7459 7.7462 ...    nan    nan    nan]]
 ```
 
-## 4. Fallback to non-adjusted data
+## 4. Data selection: Adjusted vs. non-adjusted
 
-If all values in an `_ADJUSTED` variable (e.g., `PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED`) are NaN, the system automatically falls back to the corresponding non-adjusted variable (e.g., `PRES`, `TEMP`, `PSAL`).
+The system uses the following logic to determine which data to use:
 
-This fallback mechanism ensures that real-time profiles or profiles that have not yet undergone delayed-mode quality control can still be utilized, maximizing data availability while maintaining quality standards.
+1. **Check for ADJUSTED variables**: The system first checks if all three `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED`) exist in the NetCDF file.
+2. **Validate data availability**: If all three ADJUSTED variables exist, the system checks whether **at least one** of them contains valid (non-NaN) data.
+3. **Use ADJUSTED data**: If the condition in step 2 is met, all ADJUSTED variables and their corresponding QC flags are used.
+4. **Fallback to non-adjusted data**: If ADJUSTED variables don't exist, or if all three are entirely NaN, the system uses the non-adjusted variables (`PRES`, `TEMP`, `PSAL`) and their QC flags instead.
 
-**Fallback pairs:**
+This mechanism ensures that real-time profiles or profiles that have not yet undergone delayed-mode quality control can still be utilized, maximizing data availability while maintaining quality standards.
+
+**Data pairs:**
 
 - `PRES_ADJUSTED` → `PRES`
 - `TEMP_ADJUSTED` → `TEMP`
