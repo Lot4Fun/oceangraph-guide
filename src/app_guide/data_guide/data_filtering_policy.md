@@ -26,7 +26,7 @@ Only profiles that include all of the following variables are used:
 - `PSAL`
 - `PSAL_QC`
 
-**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are optional. When they exist and at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 4 for details).
+**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are also included. When at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 4 for details).
 
 ## 3. Date and position quality control
 
@@ -61,10 +61,9 @@ D5906026_128.nc
 
 The system uses the following logic to determine which data to use:
 
-1. **Check for ADJUSTED variables**: The system first checks if all three `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED`) exist in the NetCDF file.
-2. **Validate data availability**: If all three ADJUSTED variables exist, the system checks whether **at least one** of them contains valid (non-NaN) data.
-3. **Use ADJUSTED data**: If the condition in step 2 is met, all ADJUSTED variables and their corresponding QC flags are used.
-4. **Fallback to non-adjusted data**: If ADJUSTED variables don't exist, or if all three are entirely NaN, the system uses the non-adjusted variables (`PRES`, `TEMP`, `PSAL`) and their QC flags instead.
+1. **Validate data availability**: The system checks whether **at least one** of the `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED`) contains valid (non-NaN) data.
+2. **Use ADJUSTED data**: If the condition in step 1 is met, all ADJUSTED variables and their corresponding QC flags are used.
+3. **Fallback to non-adjusted data**: If all three ADJUSTED variables are entirely NaN, the system uses the non-adjusted variables (`PRES`, `TEMP`, `PSAL`) and their QC flags instead.
 
 This mechanism ensures that real-time profiles or profiles that have not yet undergone delayed-mode quality control can still be utilized, maximizing data availability while maintaining quality standards.
 
@@ -83,7 +82,7 @@ Only data from depths shallower than **2000 dbar** are retained. Additionally, l
 
 ## 6. Profile quality filtering
 
-Only profiles where at least **80%** of `PRES_ADJUSTED_QC`, `TEMP_ADJUSTED_QC`, and `PSAL_ADJUSTED_QC` flags are either 1 or 2 are kept.
+Only profiles where at least **80%** of pressure, temperature, and salinity QC flags are either 1 or 2 are kept.
 
 ## 7. Layer-by-Layer filtering
 
@@ -107,9 +106,9 @@ Only profiles where at least **80%** of `PRES_ADJUSTED_QC`, `TEMP_ADJUSTED_QC`, 
 
 After the layer-by-layer filtering, the system checks for any remaining NaN (Not a Number) values in the core variables:
 
-- Pressure (`PRES_ADJUSTED`)
-- Temperature (`TEMP_ADJUSTED`)
-- Salinity (`PSAL_ADJUSTED`)
+- Pressure
+- Temperature
+- Salinity
 
 If any NaN values are detected in these critical variables, the entire profile is rejected and removed from the dataset. This ensures data integrity and prevents computational errors in downstream analysis.
 
