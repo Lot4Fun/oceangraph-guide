@@ -30,8 +30,8 @@ Only profiles that include all of the following variables are used:
 
 ## 3. Date and position quality control
 
-- Only profiles with `JULD_QC` values of 1 or 2 are used.
-- Only profiles with `POSITION_QC` values of 1 or 2 are used.
+- Only profiles with `JULD_QC` values of 1, 2, or 8 are used.
+- Only profiles with `POSITION_QC` values of 1, 2, or 8 are used.
 - Even if a profile passes the `POSITION_QC` check, some data may still be unreliable. For example, as shown in the red circle below, caution is advised when interpreting such data.
 
     ![Position QC Check](../../imgs/position_qc.png)
@@ -82,23 +82,23 @@ Only data from depths shallower than **2000 dbar** are retained. Additionally, l
 
 ## 6. Profile quality filtering
 
-Only profiles where at least **80%** of pressure, temperature, and salinity QC flags are either 1 or 2 are kept.
+Only profiles where at least **80%** of pressure, temperature, and salinity QC flags are 1, 2, or 8 are kept.
 
 ## 7. Layer-by-Layer filtering
 
-- Only layers where the QC flags for pressure, temperature, and salinity are all 1 or 2 are kept.
+- Only layers where the QC flags for pressure, temperature, and salinity are all 1, 2, or 8 are kept.
 - For dissolved oxygen (`DOXY_ADJUSTED`):
-  - Data are kept if the corresponding pressure, temperature, and salinity flags are all 1 or 2.
+  - Data are kept if the corresponding pressure, temperature, and salinity flags are all 1, 2, or 8.
   - The QC flag of DOXY itself is not used for filtering. This is because oxygen sensor quality can vary significantly, and applying its QC flag strictly may severely limit the available data.
   - Users should carefully interpret dissolved oxygen data due to potential sensor uncertainties.
 
-| pres_qc | temp_qc | psal_qc | doxy_qc | Judgment |
-|---------|---------|---------|---------|----------|
-| 1 or 2  | 1 or 2  | 1 or 2  | 1 or 2  | PASS     |
-| 0       | 1 or 2  | 1 or 2  | 1 or 2  | FAIL     |
-| 1 or 2  | 0       | 1 or 2  | 1 or 2  | FAIL     |
-| 1 or 2  | 1 or 2  | 0       | 1 or 2  | FAIL     |
-| 1 or 2  | 1 or 2  | 1 or 2  | 0 (*)   | **PASS** |
+| pres_qc    | temp_qc    | psal_qc    | doxy_qc    | Judgment |
+|------------|------------|------------|------------|----------|
+| 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | PASS     |
+| 0          | 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | FAIL     |
+| 1, 2, or 8 | 0          | 1, 2, or 8 | 1, 2, or 8 | FAIL     |
+| 1, 2, or 8 | 1, 2, or 8 | 0          | 1, 2, or 8 | FAIL     |
+| 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | 0 (*)      | **PASS** |
 
 **(*) DOXY quality flag is not used in filtering.**
 
