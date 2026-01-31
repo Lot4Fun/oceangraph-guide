@@ -26,7 +26,7 @@ Only profiles that include all of the following variables are used:
 - `PSAL`
 - `PSAL_QC`
 
-**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are also included. When at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 4 for details).
+**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are also included. When at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 5 for details).
 
 ## 3. Date and position quality control
 
@@ -57,7 +57,15 @@ D5906026_128.nc
  [7.7466 7.7459 7.7462 ...    nan    nan    nan]]
 ```
 
-## 4. Data selection: Adjusted vs. non-adjusted
+## 4. Longitude normalization
+
+Some Argo profiles contain longitude values outside the standard range of -180° to 180°. To ensure consistent geographic positioning, longitude values are normalized to the [-180°, 180°] range during data processing.
+
+- Longitude normalization is applied before decimal rounding
+- The normalization preserves the actual geographic location (e.g., 190° is converted to -170°)
+- Normalized values maintain the standard precision of 0.001° (approximately 111 meters)
+
+## 5. Data selection: Adjusted vs. non-adjusted
 
 The system uses the following logic to determine which data to use:
 
@@ -76,15 +84,15 @@ This mechanism ensures that real-time profiles or profiles that have not yet und
 
 The corresponding QC flags also follow the same fallback logic (e.g., `PRES_ADJUSTED_QC` → `PRES_QC`).
 
-## 5. Depth range restriction
+## 6. Depth range restriction
 
 Only data from depths shallower than **2000 dbar** are retained. Additionally, layers with negative pressure values are removed along with their corresponding data (temperature, salinity, dissolved oxygen, etc.).
 
-## 6. Profile quality filtering
+## 7. Profile quality filtering
 
 Only profiles where at least **80%** of pressure, temperature, and salinity QC flags are 1, 2, or 8 are kept.
 
-## 7. Layer-by-Layer filtering
+## 8. Layer-by-Layer filtering
 
 - Only layers where the QC flags for pressure, temperature, and salinity are all 1, 2, or 8 are kept.
 - For dissolved oxygen (`DOXY_ADJUSTED`):
@@ -102,7 +110,7 @@ Only profiles where at least **80%** of pressure, temperature, and salinity QC f
 
 **(*) DOXY quality flag is not used in filtering.**
 
-## 8. NaN value detection
+## 9. NaN value detection
 
 After the layer-by-layer filtering, the system checks for any remaining NaN (Not a Number) values in the core variables:
 
@@ -112,14 +120,14 @@ After the layer-by-layer filtering, the system checks for any remaining NaN (Not
 
 If any NaN values are detected in these critical variables, the entire profile is rejected and removed from the dataset. This ensures data integrity and prevents computational errors in downstream analysis.
 
-## 9. Interpolation of missing values for dissolved oxygen
+## 10. Interpolation of missing values for dissolved oxygen
 
 For dissolved oxygen concentrations, which often contain missing (`NaN`) values, the following interpolation procedure is applied:
 
 1. Linear interpolation is used for internal (non-endpoint) missing values.
 2. Remaining missing values at the beginning or end of the profile are filled using backward-fill and forward-fill, respectively.
 
-## 10. Duplicate pressure value removal
+## 11. Duplicate pressure value removal
 
 To ensure data integrity and maintain strictly increasing pressure sequences, duplicate pressure values are removed using a deterministic sorting approach:
 
@@ -132,7 +140,7 @@ To ensure data integrity and maintain strictly increasing pressure sequences, du
 
 This process ensures that each profile has a unique, monotonically increasing pressure sequence, which is essential for accurate oceanographic analysis and prevents computational issues in downstream processing.
 
-## 11. Pressure gap filtering
+## 12. Pressure gap filtering
 
 Profiles with excessively large gaps in pressure measurements are rejected and removed from the dataset to ensure data continuity. The filtering uses depth-dependent gap thresholds that become more permissive with increasing depth:
 
@@ -144,7 +152,7 @@ Profiles with excessively large gaps in pressure measurements are rejected and r
 
 This ensures that profiles maintain adequate vertical resolution throughout the water column, with stricter requirements in shallower waters where oceanographic gradients are typically steeper.
 
-## 12. Oceanographic parameter conversion
+## 13. Oceanographic parameter conversion
 
 To ensure consistency with oceanographic standards, the following parameter conversions are applied:
 
@@ -153,7 +161,7 @@ To ensure consistency with oceanographic standards, the following parameter conv
 
 These conversions provide more accurate representations of water mass properties by removing the effects of pressure and enabling precise oceanographic calculations. Profiles that encounter computational errors during these conversions are rejected to maintain data quality.
 
-## 13. Decimal precision
+## 14. Decimal precision
 
 To reduce data size, the values are rounded to the nearest values shown below:
 
