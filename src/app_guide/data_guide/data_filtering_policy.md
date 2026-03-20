@@ -28,6 +28,19 @@ Only profiles that include all of the following variables are used:
 
 **Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are also included. When at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 5 for details).
 
+**BGC parameters (optional):** Bio-Argo profiles may additionally contain biogeochemical (BGC) parameters. These are not required for a profile to be included, but when present they are processed and made available. The supported BGC parameters are:
+
+- `CHLA_ADJUSTED` / `CHLA_ADJUSTED_QC` — Chlorophyll-a (mg/m³)
+- `NITRATE_ADJUSTED` / `NITRATE_ADJUSTED_QC` — Nitrate (μmol/kg)
+- `BBP700_ADJUSTED` / `BBP700_ADJUSTED_QC` — Particulate backscattering coefficient at 700 nm (m⁻¹)
+- `PH_IN_SITU_TOTAL_ADJUSTED` / `PH_IN_SITU_TOTAL_ADJUSTED_QC` — pH
+- `DOWN_IRRADIANCE490_ADJUSTED` / `DOWN_IRRADIANCE490_ADJUSTED_QC` — Downwelling irradiance at 490 nm (W/m²/nm)
+- `DOWNWELLING_PAR_ADJUSTED` / `DOWNWELLING_PAR_ADJUSTED_QC` — Photosynthetically available radiation (μmol/m²/s)
+
+A Bio-Argo file is considered valid if it contains at least one complete BGC parameter pair (either `_ADJUSTED` or non-adjusted variant).
+
+**Note:** Of the two irradiance parameters, only PAR (`DOWNWELLING_PAR`) is currently available as an in-app visualization. Downwelling irradiance at 490 nm (`DOWN_IRRADIANCE490`) is processed and included in downloadable profile data, but is not displayed in the OceanGraph interface.
+
 ## 3. Date and position quality control
 
 - Only profiles with `JULD_QC` values of 1, 2, or 8 are used.
@@ -81,8 +94,16 @@ This mechanism ensures that real-time profiles or profiles that have not yet und
 - `TEMP_ADJUSTED` → `TEMP`
 - `PSAL_ADJUSTED` → `PSAL`
 - `DOXY_ADJUSTED` → `DOXY` (if applicable)
+- `CHLA_ADJUSTED` → `CHLA` (if applicable)
+- `NITRATE_ADJUSTED` → `NITRATE` (if applicable)
+- `BBP700_ADJUSTED` → `BBP700` (if applicable)
+- `PH_IN_SITU_TOTAL_ADJUSTED` → `PH_IN_SITU_TOTAL` (if applicable)
+- `DOWN_IRRADIANCE490_ADJUSTED` → `DOWN_IRRADIANCE490` (if applicable)
+- `DOWNWELLING_PAR_ADJUSTED` → `DOWNWELLING_PAR` (if applicable)
 
 The corresponding QC flags also follow the same fallback logic (e.g., `PRES_ADJUSTED_QC` → `PRES_QC`).
+
+**Note:** For BGC parameters, each parameter independently determines whether to use the ADJUSTED or non-adjusted variant. Within the same profile, some BGC parameters may use ADJUSTED data while others fall back to non-adjusted data, depending on availability.
 
 ## 6. Depth range restriction
 
@@ -94,21 +115,37 @@ Only profiles where at least **80%** of pressure, temperature, and salinity QC f
 
 ## 8. Layer-by-Layer filtering
 
-- Only layers where the QC flags for pressure, temperature, and salinity are all 1, 2, or 8 are kept.
-- For dissolved oxygen (`DOXY_ADJUSTED`):
-  - Data are kept if the corresponding pressure, temperature, and salinity flags are all 1, 2, or 8.
-  - The QC flag of DOXY itself is not used for filtering. This is because oxygen sensor quality can vary significantly, and applying its QC flag strictly may severely limit the available data.
-  - Users should carefully interpret dissolved oxygen data due to potential sensor uncertainties.
+**Core variables (pressure, temperature, salinity):**
 
-| pres_qc    | temp_qc    | psal_qc    | doxy_qc    | Judgment |
-|------------|------------|------------|------------|----------|
-| 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | PASS     |
-| 0          | 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | FAIL     |
-| 1, 2, or 8 | 0          | 1, 2, or 8 | 1, 2, or 8 | FAIL     |
-| 1, 2, or 8 | 1, 2, or 8 | 0          | 1, 2, or 8 | FAIL     |
-| 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | 0 (*)      | **PASS** |
+Only layers where all QC flags for pressure, temperature, and salinity are 1, 2, or 8 are kept. These valid layers define the index set used for all subsequent variable selection, including BGC parameters.
 
-**(*) DOXY quality flag is not used in filtering.**
+**BGC parameters (dissolved oxygen and other biogeochemical variables):**
+
+All BGC parameters are filtered in two stages:
+
+**Stage 1 — Profile-level QC threshold:**
+
+Before selecting layers, each BGC parameter's QC flags are checked across the entire profile. If a parameter fails this check, its data is discarded for that profile (set to empty); the profile itself is not rejected.
+
+- **Dissolved oxygen, chlorophyll, nitrate, backscattering, and pH** (`DOXY`, `CHLA`, `NITRATE`, `BBP700`, `PH_IN_SITU_TOTAL`): data is discarded if fewer than **80%** of QC flags pass (values 1, 2, or 8).
+- **Irradiance parameters** (`DOWN_IRRADIANCE490`, `DOWNWELLING_PAR`): because these sensors only measure in the surface layer (roughly 0–200 dbar), most values in a deep profile are inherently NaN or invalid. Applying the 80% threshold would discard nearly all irradiance profiles. Instead, data is retained if **at least one** QC flag passes; if none pass, the data is discarded.
+
+**Stage 2 — Layer selection using core variable indices:**
+
+After the profile-level check, each BGC parameter is subsetted to the valid layers determined by the pressure/temperature/salinity QC above. The BGC parameters' own QC flags are **not** used for individual layer selection — only the core variable indices determine which layers are kept.
+
+The table below illustrates this logic (shown with dissolved oxygen, but the same applies to all BGC parameters):
+
+| pres_qc    | temp_qc    | psal_qc    | bgc_qc | Judgment |
+|------------|------------|------------|--------|----------|
+| 1, 2, or 8 | 1, 2, or 8 | 1, 2, or 8 | any    | PASS     |
+| 0          | 1, 2, or 8 | 1, 2, or 8 | any    | FAIL     |
+| 1, 2, or 8 | 0          | 1, 2, or 8 | any    | FAIL     |
+| 1, 2, or 8 | 1, 2, or 8 | 0          | any    | FAIL     |
+
+**BGC QC flags are not used for individual layer selection.**
+
+**Note:** BGC sensor data, dissolved oxygen in particular, may contain measurement uncertainties. Users should interpret BGC data carefully.
 
 ## 9. NaN value detection
 
@@ -120,12 +157,20 @@ After the layer-by-layer filtering, the system checks for any remaining NaN (Not
 
 If any NaN values are detected in these critical variables, the entire profile is rejected and removed from the dataset. This ensures data integrity and prevents computational errors in downstream analysis.
 
-## 10. Interpolation of missing values for dissolved oxygen
+## 10. Interpolation of missing values for BGC parameters
 
-For dissolved oxygen concentrations, which often contain missing (`NaN`) values, the following interpolation procedure is applied:
+BGC parameters often contain missing (`NaN`) values. The interpolation procedure varies by parameter type:
+
+**Dissolved oxygen, chlorophyll, nitrate, backscattering, and pH** (`DOXY`, `CHLA`, `NITRATE`, `BBP700`, `PH_IN_SITU_TOTAL`):
 
 1. Linear interpolation is used for internal (non-endpoint) missing values.
 2. Remaining missing values at the beginning or end of the profile are filled using backward-fill and forward-fill, respectively.
+
+**Irradiance parameters** (`DOWN_IRRADIANCE490`, `DOWNWELLING_PAR`):
+
+1. Linear interpolation is used for internal missing values only.
+2. Missing values at the edges of the profile are **not** filled. Leading and trailing NaN values are physically meaningful — deep-water values are NaN because light does not penetrate to depth, and surface values may be NaN due to nighttime observations. These are preserved as `null` in the output JSON.
+3. If all values remain `null` after interpolation, the parameter is treated as absent for that profile.
 
 ## 11. Duplicate pressure value removal
 
@@ -171,3 +216,9 @@ To reduce data size, the values are rounded to the nearest values shown below:
 | Temperature                    | 0.001     |
 | Salinity                       | 0.001     |
 | Dissolved oxygen concentration | 0.001     |
+| Chlorophyll-a                  | 0.001     |
+| Nitrate                        | 0.01      |
+| Backscattering (BBP700)        | 0.000001  |
+| pH                             | 0.001     |
+| Irradiance (490 nm)            | 0.001     |
+| PAR                            | 0.1       |
