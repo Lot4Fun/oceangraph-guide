@@ -17,3 +17,11 @@
 ![Missing section example](../../imgs/section_missing_values.png)
 
 Please keep this in mind when interpreting the charts.
+
+3. BGC Parameter Charts May Have More Missing Areas
+
+    Vertical section charts are also available for BGC parameters (chlorophyll, nitrate, backscattering, pH, irradiance, and PAR). Because only a subset of Argo floats carry BGC sensors, BGC data is available for fewer floats overall compared to temperature or salinity. For a section chart of a specific float that does carry a BGC sensor, the number of cycles with BGC data is generally the same as for physical parameters — however, quality control may still cause some individual cycles to be discarded, which can result in gaps.
+
+    Additionally, irradiance and PAR profiles contain data only in the surface layer (roughly 0–200 dbar). Deeper portions of those section charts will always appear as missing areas, which is physically expected behavior.
+
+    Note also that of the two irradiance parameters (`DOWN_IRRADIANCE490` and `DOWNWELLING_PAR`), only PAR is displayed in the OceanGraph interface. Downwelling irradiance at 490 nm is included in downloadable profile data but does not have a corresponding in-app visualization.
