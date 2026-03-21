@@ -4,9 +4,44 @@ In OceanGraph, only carefully selected Argo float profiles are used according to
 
 ## 1. Selection of profiles
 
+### 1-1. File-level selection
+
 - Only real-time (`R`, `BR`) and delayed-mode (`D`, `BD`) profiles are used.
 - If both real-time and delayed-mode profiles exist for the same cycle, the delayed-mode profile (D or BD) is preferred.
-- Drift profiles (those with a `D` at the end of `CYCLE_NUMBER`) are excluded.
+- Drift profiles (those whose filename has a cycle number suffix ending in `D`, e.g. `R1234567_027D.nc`) are excluded.
+
+### 1-2. Best-profile selection within a file
+
+Some NetCDF files contain multiple profiles (`N_PROF > 1`) — for example, when a float records both descending and ascending phases in the same cycle, or when a Bio-Argo file stores data from different BGC sensors as separate profiles.
+
+**Note:** The file-level D/BD preference (section 1-1) and the within-file `DATA_MODE`-based selection (section 1-2) are independent mechanisms and may both apply to the same cycle.
+
+#### TS profile selection
+
+When a TS file contains more than one profile, the following algorithm selects the best candidate:
+
+| Step | Type | Rule |
+| --- | --- | --- |
+| Step 0 | Pre-filter | Candidates with invalid `JULD_QC` or `POSITION_QC` are removed. If all candidates fail, no filtering is applied at this step (they will be rejected in the QC stage below). |
+| Step 1 | Hard rule | Profiles with `DIRECTION == 'A'` (ascending) are preferred. If no ascending profile exists, all remaining candidates are kept. |
+| Step 2 | Hard rule | Profiles are filtered by `DATA_MODE` priority: `D` (delayed mode) > `A` (adjusted real-time) > `R` (real-time). |
+| Step 3 | Tie-breaker | If multiple candidates remain, the profile with the highest quality score is selected. The score is based on the presence of `_ADJUSTED` data, the count of valid QC flags, and the valid pressure range. |
+
+Steps 0–2 are **hard rules** that narrow down candidates according to Argo specification priorities. Step 3 (scoring) is used only when the hard rules cannot determine a single winner.
+
+**Why ascending profiles are preferred:** Argo floats collect data primarily during the ascending phase. Sensors stabilize during ascent, and delayed-mode quality control (DMQC) targets ascending profiles. Ascending profiles are therefore preferred both physically and operationally.
+
+#### BGC parameter selection
+
+Bio-Argo files (BR/BD) have their own `N_PROF` dimension, independent of the corresponding TS file. Different BGC sensors may be stored as separate profiles within the same file due to sensor-specific processing — for example, DOXY in profile 0 and CHLA in profile 1. For this reason, **each BGC parameter independently selects its own best profile** rather than using a single shared index.
+
+For each BGC parameter, the selection proceeds as follows:
+
+1. Profiles that contain valid data for the parameter (using `_ADJUSTED` if available, otherwise raw) are identified as candidates.
+2. Candidates whose pressure levels match those of the selected TS profile (using raw `PRES`) are retained. If no candidate matches, the parameter is treated as absent for that profile.
+3. If multiple candidates remain, selection follows the same DIRECTION → `DATA_MODE` → tie-breaker scoring order as TS profile selection.
+
+**Note:** The pressure matching in step 2 applies regardless of `N_PROF`. Even when a Bio-Argo file contains only one profile, if its pressure levels do not match those of the selected TS profile, the BGC parameter is treated as absent for that cycle.
 
 ## 2. Required variables
 
@@ -26,10 +61,11 @@ Only profiles that include all of the following variables are used:
 - `PSAL`
 - `PSAL_QC`
 
-**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are also included. When at least one of them contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 5 for details).
+**Note:** The `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED` and their QC flags) are also included. When all three `_ADJUSTED` variables and their QC flags exist and each contains valid (non-NaN) data, the adjusted variables are used. Otherwise, the non-adjusted variables are used (see section 5 for details).
 
 **BGC parameters (optional):** Bio-Argo profiles may additionally contain biogeochemical (BGC) parameters. These are not required for a profile to be included, but when present they are processed and made available. The supported BGC parameters are:
 
+- `DOXY_ADJUSTED` / `DOXY_ADJUSTED_QC` — Dissolved oxygen (μmol/kg)
 - `CHLA_ADJUSTED` / `CHLA_ADJUSTED_QC` — Chlorophyll-a (mg/m³)
 - `NITRATE_ADJUSTED` / `NITRATE_ADJUSTED_QC` — Nitrate (μmol/kg)
 - `BBP700_ADJUSTED` / `BBP700_ADJUSTED_QC` — Particulate backscattering coefficient at 700 nm (m⁻¹)
@@ -49,27 +85,6 @@ A Bio-Argo file is considered valid if it contains at least one complete BGC par
 
     ![Position QC Check](../../imgs/position_qc.png)
 
-**Note:** In some NetCDF files, multiple profiles can be present in a single file. In such cases, only the first profile (i.e., index 0) is used for further analysis, as illustrated in the example below:
-
-```python
-# NetCDF file:
-D5906026_128.nc
-
-# JULD_QC:
-[b'1' b'1']
-
-# POSITION_QC:
-[b'1' b'1']
-
-# TEMP_QC:
-[[b'1' b'1' b'1' ... b'1' b'1' b'1']
- [b'1' b'1' b'1' ... nan nan nan]]
-
-# TEMP:
-[[7.743  7.745  7.745  ... 2.0353 1.9964 1.9618]
- [7.7466 7.7459 7.7462 ...    nan    nan    nan]]
-```
-
 ## 4. Longitude normalization
 
 Some Argo profiles contain longitude values outside the standard range of -180° to 180°. To ensure consistent geographic positioning, longitude values are normalized to the [-180°, 180°] range during data processing.
@@ -82,9 +97,9 @@ Some Argo profiles contain longitude values outside the standard range of -180°
 
 The system uses the following logic to determine which data to use:
 
-1. **Validate data availability**: The system checks whether **at least one** of the `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED`) contains valid (non-NaN) data.
-2. **Use ADJUSTED data**: If the condition in step 1 is met, all ADJUSTED variables and their corresponding QC flags are used.
-3. **Fallback to non-adjusted data**: If all three ADJUSTED variables are entirely NaN, the system uses the non-adjusted variables (`PRES`, `TEMP`, `PSAL`) and their QC flags instead.
+1. **Validate data availability**: The system checks whether **all three** `_ADJUSTED` variables (`PRES_ADJUSTED`, `TEMP_ADJUSTED`, `PSAL_ADJUSTED`) and their corresponding QC flags exist and each contains valid (non-NaN) data.
+2. **Use ADJUSTED data**: If all conditions in step 1 are met, all ADJUSTED variables and their corresponding QC flags are used.
+3. **Fallback to non-adjusted data**: If any of the three ADJUSTED variables is missing or entirely NaN, the system uses the non-adjusted variables (`PRES`, `TEMP`, `PSAL`) and their QC flags instead.
 
 This mechanism ensures that real-time profiles or profiles that have not yet undergone delayed-mode quality control can still be utilized, maximizing data availability while maintaining quality standards.
 
