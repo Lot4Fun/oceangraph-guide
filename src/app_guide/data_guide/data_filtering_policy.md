@@ -4,9 +4,42 @@ In OceanGraph, only carefully selected Argo float profiles are used according to
 
 ## 1. Selection of profiles
 
+### 1-1. File-level selection
+
 - Only real-time (`R`, `BR`) and delayed-mode (`D`, `BD`) profiles are used.
 - If both real-time and delayed-mode profiles exist for the same cycle, the delayed-mode profile (D or BD) is preferred.
 - Drift profiles (those with a `D` at the end of `CYCLE_NUMBER`) are excluded.
+
+### 1-2. Best-profile selection within a file
+
+Some NetCDF files contain multiple profiles (`N_PROF > 1`) — for example, when a float records both descending and ascending phases in the same cycle, or when a Bio-Argo file stores data from different BGC sensors as separate profiles.
+
+**Note:** The file-level D/BD preference (section 1-1) and the within-file `DATA_MODE`-based selection (section 1-2) are independent mechanisms and may both apply to the same cycle.
+
+#### TS profile selection
+
+When a TS file contains more than one profile, the following algorithm selects the best candidate:
+
+| Step | Type | Rule |
+| --- | --- | --- |
+| Step 0 | Pre-filter | Candidates with invalid `JULD_QC` or `POSITION_QC` are removed. If all candidates fail, no filtering is applied at this step (they will be rejected in the QC stage below). |
+| Step 1 | Hard rule | Profiles with `DIRECTION == 'A'` (ascending) are preferred. If no ascending profile exists, all remaining candidates are kept. |
+| Step 2 | Hard rule | Profiles are filtered by `DATA_MODE` priority: `D` (delayed mode) > `A` (adjusted real-time) > `R` (real-time). |
+| Step 3 | Tie-breaker | If multiple candidates remain, the profile with the highest quality score is selected. The score is based on the presence of `_ADJUSTED` data, the count of valid QC flags, and the valid pressure range. |
+
+Steps 0–2 are **hard rules** that narrow down candidates according to Argo specification priorities. Step 3 (scoring) is used only when the hard rules cannot determine a single winner.
+
+**Why ascending profiles are preferred:** Argo floats collect data primarily during the ascending phase. Sensors stabilize during ascent, and delayed-mode quality control (DMQC) targets ascending profiles. Ascending profiles are therefore preferred both physically and operationally.
+
+#### BGC parameter selection
+
+Bio-Argo files (BR/BD) have their own `N_PROF` dimension, independent of the corresponding TS file. Different BGC sensors may be stored as separate profiles within the same file due to sensor-specific processing — for example, DOXY in profile 0 and CHLA in profile 1. For this reason, **each BGC parameter independently selects its own best profile** rather than using a single shared index.
+
+For each BGC parameter, the selection proceeds as follows:
+
+1. Profiles that contain valid data for the parameter (using `_ADJUSTED` if available, otherwise raw) are identified as candidates.
+2. Candidates whose pressure levels match those of the selected TS profile (using raw `PRES`) are retained. If no candidate matches, the parameter is treated as absent for that profile.
+3. If multiple candidates remain, selection follows the same DIRECTION → `DATA_MODE` → tie-breaker scoring order as TS profile selection.
 
 ## 2. Required variables
 
@@ -48,27 +81,6 @@ A Bio-Argo file is considered valid if it contains at least one complete BGC par
 - Even if a profile passes the `POSITION_QC` check, some data may still be unreliable. For example, as shown in the red circle below, caution is advised when interpreting such data.
 
     ![Position QC Check](../../imgs/position_qc.png)
-
-**Note:** In some NetCDF files, multiple profiles can be present in a single file. In such cases, only the first profile (i.e., index 0) is used for further analysis, as illustrated in the example below:
-
-```python
-# NetCDF file:
-D5906026_128.nc
-
-# JULD_QC:
-[b'1' b'1']
-
-# POSITION_QC:
-[b'1' b'1']
-
-# TEMP_QC:
-[[b'1' b'1' b'1' ... b'1' b'1' b'1']
- [b'1' b'1' b'1' ... nan nan nan]]
-
-# TEMP:
-[[7.743  7.745  7.745  ... 2.0353 1.9964 1.9618]
- [7.7466 7.7459 7.7462 ...    nan    nan    nan]]
-```
 
 ## 4. Longitude normalization
 
