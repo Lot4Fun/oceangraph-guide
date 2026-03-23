@@ -172,7 +172,24 @@ After the layer-by-layer filtering, the system checks for any remaining NaN (Not
 
 If any NaN values are detected in these critical variables, the entire profile is rejected and removed from the dataset. This ensures data integrity and prevents computational errors in downstream analysis.
 
-## 10. Interpolation of missing values for BGC parameters
+## 10. Physical bounds masking for BGC parameters
+
+Before interpolation, each BGC parameter value is checked against a configured physical range (`bounds_min` / `bounds_max`). Any value that falls outside this range is replaced with `None` (treated as missing) — it is **not** clamped to the boundary value. These masked values are then filled in by the subsequent interpolation step (section 11), so the output JSON contains an interpolated estimate rather than the physically implausible raw value.
+
+This step is independent of QC flag filtering. QC flags indicate measurement reliability as assessed by the data provider, but a value can carry a passing QC flag while still being physically impossible (e.g., `DOXY = −634 μmol/kg`). Physical bounds masking acts as an additional safeguard against such sensor anomalies that QC flags alone do not catch.
+
+**Current bounds configuration:**
+
+| Parameter | bounds_min | bounds_max | Notes |
+| --- | --- | --- | --- |
+| `DOXY` | 0.0 μmol/kg | 600.0 μmol/kg | Physically impossible negative or extreme values have been observed |
+| `CHLA`, `NITRATE`, `BBP700`, `PH_IN_SITU_TOTAL`, `DOWN_IRRADIANCE490`, `DOWNWELLING_PAR` | — | — | No bounds currently applied |
+
+Only `DOXY` has specific bounds configured at this time. Other parameters retain their current values unless bounds are explicitly set in the future.
+
+**Important note for irradiance parameters:** `DOWN_IRRADIANCE490` and `DOWNWELLING_PAR` use edge-preserving interpolation (no extrapolation at profile boundaries — see section 11). If a masked value falls at the leading or trailing edge of the profile, it will remain as `null` in the output JSON rather than being filled by interpolation.
+
+## 11. Interpolation of missing values for BGC parameters
 
 BGC parameters often contain missing (`NaN`) values. The interpolation procedure varies by parameter type:
 
@@ -187,7 +204,7 @@ BGC parameters often contain missing (`NaN`) values. The interpolation procedure
 2. Missing values at the edges of the profile are **not** filled. Leading and trailing NaN values are physically meaningful — deep-water values are NaN because light does not penetrate to depth, and surface values may be NaN due to nighttime observations. These are preserved as `null` in the output JSON.
 3. If all values remain `null` after interpolation, the parameter is treated as absent for that profile.
 
-## 11. Duplicate pressure value removal
+## 12. Duplicate pressure value removal
 
 To ensure data integrity and maintain strictly increasing pressure sequences, duplicate pressure values are removed using a deterministic sorting approach:
 
@@ -200,7 +217,7 @@ To ensure data integrity and maintain strictly increasing pressure sequences, du
 
 This process ensures that each profile has a unique, monotonically increasing pressure sequence, which is essential for accurate oceanographic analysis and prevents computational issues in downstream processing.
 
-## 12. Pressure gap filtering
+## 13. Pressure gap filtering
 
 Profiles with excessively large gaps in pressure measurements are rejected and removed from the dataset to ensure data continuity. The filtering uses depth-dependent gap thresholds that become more permissive with increasing depth:
 
@@ -212,7 +229,7 @@ Profiles with excessively large gaps in pressure measurements are rejected and r
 
 This ensures that profiles maintain adequate vertical resolution throughout the water column, with stricter requirements in shallower waters where oceanographic gradients are typically steeper.
 
-## 13. Oceanographic parameter conversion
+## 14. Oceanographic parameter conversion
 
 To ensure consistency with oceanographic standards, the following parameter conversions are applied:
 
@@ -221,7 +238,7 @@ To ensure consistency with oceanographic standards, the following parameter conv
 
 These conversions provide more accurate representations of water mass properties by removing the effects of pressure and enabling precise oceanographic calculations. Profiles that encounter computational errors during these conversions are rejected to maintain data quality.
 
-## 14. Decimal precision
+## 15. Decimal precision
 
 To reduce data size, the values are rounded to the nearest values shown below:
 
