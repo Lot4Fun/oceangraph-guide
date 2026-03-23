@@ -174,13 +174,13 @@ If any NaN values are detected in these critical variables, the entire profile i
 
 ## 10. Physical bounds masking for BGC parameters
 
-Before interpolation, each BGC parameter value is checked against a configured physical range (`bounds_min` / `bounds_max`). Any value that falls outside this range is replaced with `None` (treated as missing) — it is **not** clamped to the boundary value. These masked values are then filled in by the subsequent interpolation step (section 11), so the output JSON contains an interpolated estimate rather than the physically implausible raw value.
+Before interpolation, each BGC parameter value is checked against a configured physical range (`valid_min` / `valid_max`). Any value that falls outside this range is replaced with `None` (treated as missing) — it is **not** clamped to the boundary value. These masked values are then filled in by the subsequent interpolation step (section 11), so the output JSON contains an interpolated estimate rather than the physically implausible raw value.
 
 This step is independent of QC flag filtering. QC flags indicate measurement reliability as assessed by the data provider, but a value can carry a passing QC flag while still being physically impossible (e.g., `DOXY = −634 μmol/kg`). Physical bounds masking acts as an additional safeguard against such sensor anomalies that QC flags alone do not catch.
 
 **Current bounds configuration:**
 
-| Parameter | bounds_min | bounds_max | Notes |
+| Parameter | valid_min | valid_max | Notes |
 | --- | --- | --- | --- |
 | `DOXY` | 0.0 μmol/kg | 600.0 μmol/kg | Physically impossible negative or extreme values have been observed |
 | `CHLA`, `NITRATE`, `BBP700`, `PH_IN_SITU_TOTAL`, `DOWN_IRRADIANCE490`, `DOWNWELLING_PAR` | — | — | No bounds currently applied |
