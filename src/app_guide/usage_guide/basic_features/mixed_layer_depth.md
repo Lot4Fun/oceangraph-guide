@@ -21,8 +21,8 @@ OceanGraph calculates the mixed layer depth (MLD) from individual Argo float pro
 
 3. Data Quality Requirements
 
-   - **Reference Depth Coverage**: The reference depth (10 dbar) must be within the measured pressure range of the profile. If the reference depth falls outside the available data range, MLD calculation is skipped for that profile.
-   - **Shallow Data Availability**: A minimum of 3 data points at or above 50 dbar is required for reliable MLD calculation. Profiles with insufficient shallow measurements are excluded from MLD computation to ensure accuracy.
+   - **Reference Depth Coverage**: The shallowest observation must be no more than 20 dbar deeper than the reference depth (10 dbar). If this condition is not met, or if the reference depth is deeper than the deepest observation, MLD calculation is skipped for that profile. When the shallowest observation is within 20 dbar of the reference depth, the shallowest observed value is used as the surface representative value for the MLD calculation.
+   - **Shallow Data Availability**: A minimum of 2 data points at or above 50 dbar is required for reliable MLD calculation. Profiles with insufficient shallow measurements are excluded from MLD computation to ensure accuracy.
 
 4. Conversion to Depth
 
