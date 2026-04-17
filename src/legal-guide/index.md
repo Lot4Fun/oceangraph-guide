@@ -8,8 +8,8 @@ The Terms of Service outline the rules, responsibilities, and conditions for usi
 
 Available in:
 
-- [English](./terms_of_service/en.md)
-- [日本語 (Japanese)](./terms_of_service/ja.md)
+- [English](./terms-of-service/en.md)
+- [日本語 (Japanese)](./terms-of-service/ja.md)
 
 ## Privacy Policy
 
@@ -17,5 +17,5 @@ The Privacy Policy explains how OceanGraph collects, uses, stores, and protects 
 
 Available in:
 
-- [English](./privacy_policy/en.md)
-- [日本語 (Japanese)](./privacy_policy/ja.md)
+- [English](./privacy-policy/en.md)
+- [日本語 (Japanese)](./privacy-policy/ja.md)

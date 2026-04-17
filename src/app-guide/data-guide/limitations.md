@@ -14,7 +14,7 @@
 
     This can be seen in the same image where gray regions appear in the section chart, even though observation points are visible in the trajectory chart above.
 
-    ![Missing section example](../../imgs/section_missing_values.png)
+    ![Missing section example](../../imgs/section-missing-values.png)
 
     Please keep this in mind when interpreting the charts.
 

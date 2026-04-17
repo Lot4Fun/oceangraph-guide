@@ -2,7 +2,7 @@
 
 The Mode Water Analysis feature displays the detection and time series visualization of mode water layers in Argo float profiles.
 
-![Mode Waters](../../../../imgs/mode_waters.png)
+![Mode Waters](../../../imgs/mode-waters.png)
 
 This tool provides:
 

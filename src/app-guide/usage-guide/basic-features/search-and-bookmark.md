@@ -25,7 +25,7 @@ OceanGraph provides search capabilities to find Argo float profiles based on geo
 
 4. Save Search Conditions
 
-   ![Save Search](../../../imgs/bookmark_filter_data.png)
+   ![Save Search](../../../imgs/bookmark-filter-data.png)
 
     > **Note:** Available to signed-in users only
 
@@ -46,7 +46,7 @@ OceanGraph provides search capabilities to find Argo float profiles based on geo
 
 3. Bookmark Profiles
 
-   ![Bookmark Profile](../../../imgs/bookmark_profile_details.png)
+   ![Bookmark Profile](../../../imgs/bookmark-profile-details.png)
 
     > **Note:** Available to signed-in users only
 

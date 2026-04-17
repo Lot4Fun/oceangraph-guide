@@ -2,7 +2,7 @@
 
 The θ-S diagram feature allows you to visualize potential temperature-absolute salinity relationships of Argo float profiles in the current search area.
 
-![θ-S Diagram](../../../imgs/t-s_diagram.png)
+![θ-S Diagram](../../../imgs/t-s-diagram.png)
 
 ## Accessing θ-S Diagram
 
