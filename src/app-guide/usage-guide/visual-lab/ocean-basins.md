@@ -4,7 +4,7 @@
 
 The Ocean Basins feature provides time series visualization of average temperature and salinity changes across the world's major ocean basins. This tool displays long-term oceanographic trends using Argo float data from 1998 to the present.
 
-![Ocean Basins](../../../../imgs/ocean_basins.png)
+![Ocean Basins](../../../imgs/ocean-basins.png)
 
 ## Ocean Basins Coverage
 

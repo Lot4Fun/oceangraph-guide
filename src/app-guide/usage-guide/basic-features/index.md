@@ -2,6 +2,8 @@
 
 This section provides detailed guides for the core features of OceanGraph. These features enable you to search, visualize, and analyze Argo float data effectively.
 
+**[Open OceanGraph](https://oceangraph.io/)** to try these features in the live app.
+
 **Search and Bookmark** allows you to find Argo float profiles using geographic, temporal, and data quality criteria, and bookmark profiles for future reference.
 
 **Trajectory and Time-Series Vertical Section** visualizes how oceanographic parameters change with depth and time along a float's trajectory, providing a comprehensive view of the water column structure throughout the float's journey.

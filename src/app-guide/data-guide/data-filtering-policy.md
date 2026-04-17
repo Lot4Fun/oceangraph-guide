@@ -83,7 +83,7 @@ A Bio-Argo file is considered valid if it contains at least one complete BGC par
 - Only profiles with `POSITION_QC` values of 1, 2, or 8 are used.
 - Even if a profile passes the `POSITION_QC` check, some data may still be unreliable. For example, as shown in the red circle below, caution is advised when interpreting such data.
 
-    ![Position QC Check](../../imgs/position_qc.png)
+    ![Position QC Check](../../imgs/position-qc.png)
 
 ## 4. Longitude normalization
 

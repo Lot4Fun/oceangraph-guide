@@ -2,7 +2,7 @@
 
 OceanGraph calculates the subsurface oxygen maximum (SOM) for individual Argo float profiles using dissolved oxygen and pressure (or depth) data. This metric is widely used in oceanography to characterize the vertical structure of oxygen, especially in subtropical and tropical regions, where a local maximum often appears just below the surface mixed layer.
 
-![Subsurface Oxygen Maximum Example](../../../imgs/subsurface_oxygen_maximum.png)
+![Subsurface Oxygen Maximum Example](../../../imgs/subsurface-oxygen-maximum.png)
 
 1. Definition and Search Range
 

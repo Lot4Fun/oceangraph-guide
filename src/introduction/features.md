@@ -29,6 +29,6 @@ All free features, plus:
 
 **(*) Titles can contain up to 64 characters, and notes up to 200 characters.**
 
-![OceanGraph Example2](../imgs/t-s_diagram.png)
+![OceanGraph Example2](../imgs/t-s-diagram.png)
 
-![OceanGraph Example3](../imgs/mode_waters.png)
+![OceanGraph Example3](../imgs/mode-waters.png)
