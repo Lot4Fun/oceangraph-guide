@@ -1,4 +1,4 @@
-# How to Read a T-S Diagram in Oceanography (With Examples)
+# T-S Diagrams in Oceanography Explained (With Examples)
 
 If you are learning oceanography, a **T-S diagram** is one of the most useful plots you can understand early. It shows how **temperature** and **salinity** relate to each other within seawater, making it easier to identify water masses, mixing, and density structure than by looking at temperature or salinity alone.
 

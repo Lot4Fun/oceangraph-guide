@@ -96,7 +96,7 @@ For many users, the first practical views of Argo data are not the raw files the
 - Float trajectory maps
 - Temperature-salinity or theta-salinity diagrams
 
-![Vertical profiles from Argo-style data in OceanGraph](../imgs/vertical-profiles.png)
+![Argo trajectory and time-series vertical section in OceanGraph](../imgs/trajectory-and-vertical-section.png)
 
 Those visualizations are often the fastest way to build intuition before moving into full Argo float data analysis.
 
