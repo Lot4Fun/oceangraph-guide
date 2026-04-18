@@ -6,7 +6,7 @@ That creates a common problem. You may know that warm water is different from co
 
 This guide explains how salinity and temperature are related, why both matter for ocean structure, what common patterns look like in real profiles, and how to explore those relationships in OceanGraph using Argo data.
 
-If you want the profile-reading foundation first, see [How to Read Ocean Temperature and Salinity Profiles](./how-to-read-ocean-temperature-and-salinity-profiles.md).
+If you want the profile-reading foundation first, see [Ocean Temperature and Salinity Profiles Explained](./ocean-temperature-and-salinity-profiles-explained.md).
 
 ## Why Temperature Alone Is Not Enough
 
@@ -238,7 +238,7 @@ Instead of reading temperature and salinity as two separate lines, you read them
 OceanGraph's feature guide is here:
 
 - [θ-S Diagram](../app-guide/usage-guide/basic-features/t-s-diagram.md)
-- [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md)
+- [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md)
 
 ![θ-S diagram in OceanGraph](../imgs/t-s-diagram.png)
 

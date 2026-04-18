@@ -265,7 +265,7 @@ Useful follow-up pages are:
 
 - [Search and Bookmark](../app-guide/usage-guide/basic-features/search-and-bookmark.md)
 - [Vertical Profiles](../app-guide/usage-guide/analysis-lab/vertical-profiles.md)
-- [How to Visualize Argo Float Data Without Python (Step-by-Step Guide)](./visualize-argo-data-without-python.md)
+- [Visualizing Argo Float Data Without Python (Step-by-Step Guide)](./visualizing-argo-float-data-without-python.md)
 
 ![Argo profile search in OceanGraph](../imgs/search.png)
 

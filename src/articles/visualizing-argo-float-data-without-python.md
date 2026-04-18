@@ -1,4 +1,4 @@
-# How to Visualize Argo Float Data Without Python (Step-by-Step Guide)
+# Visualizing Argo Float Data Without Python (Step-by-Step Guide)
 
 If you want to explore **Argo float data** but do not want to start with Python, you are not alone. Many students, early-career researchers, and domain learners reach the same point: they are interested in the ocean, but the first barrier they hit is not science. It is tooling.
 
@@ -89,7 +89,7 @@ With OceanGraph, you can:
 
 In other words, it lets you start from interpretation instead of file handling.
 
-## Step-by-Step: How to Visualize Argo Float Data Without Python
+## Step-by-Step Workflow for Visualizing Argo Float Data Without Python
 
 Here is a practical workflow you can follow.
 
@@ -190,7 +190,7 @@ This is especially useful when you want to:
 OceanGraph includes a dedicated guide here:
 
 - [θ-S Diagram](../app-guide/usage-guide/basic-features/t-s-diagram.md)
-- [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md)
+- [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md)
 
 For many beginners, this is the point where Argo data stops feeling like a spreadsheet and starts feeling like physical oceanography.
 
@@ -282,7 +282,7 @@ No. It is especially useful for beginners, but it is also practical for research
 These are the most useful follow-up pages:
 
 - [What is Argo Float? A Complete Guide to Ocean Observation Data](./argo-float-complete-guide.md)
-- [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md)
+- [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md)
 - [Search and Bookmark](../app-guide/usage-guide/basic-features/search-and-bookmark.md)
 - [Vertical Profiles](../app-guide/usage-guide/analysis-lab/vertical-profiles.md)
 

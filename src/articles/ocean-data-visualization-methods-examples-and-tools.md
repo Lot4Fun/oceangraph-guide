@@ -75,7 +75,7 @@ Profiles help you recognize:
 - Subsurface maxima or minima
 - Stable deep structure
 
-If you are new to profile interpretation, [How to Read Ocean Temperature and Salinity Profiles](./how-to-read-ocean-temperature-and-salinity-profiles.md) is the best companion article.
+If you are new to profile interpretation, [Ocean Temperature and Salinity Profiles Explained](./ocean-temperature-and-salinity-profiles-explained.md) is the best companion article.
 
 The strength of a profile is clarity. You can see where the major transitions occur in the water column. The limitation is that a single profile does not always show how the structure changes in space or time unless you compare it with other profiles.
 
@@ -118,7 +118,7 @@ Instead of showing how one variable changes with depth, it shows how **temperatu
 
 If vertical profiles tell you where a transition happens, a T-S view helps tell you what kind of water the transition represents.
 
-If you want a beginner-friendly interpretation guide, see [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md).
+If you want a beginner-friendly interpretation guide, see [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md).
 
 ## 5. Time Series: How Does One Variable Evolve at One Place or One Platform?
 

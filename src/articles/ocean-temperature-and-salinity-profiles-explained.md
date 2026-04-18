@@ -1,4 +1,4 @@
-# How to Read Ocean Temperature and Salinity Profiles
+# Ocean Temperature and Salinity Profiles Explained
 
 If you are learning oceanography, one of the first plots you will encounter is a **vertical profile** of **temperature** or **salinity**. These plots look simple at first, but the interpretation is often less obvious than beginners expect. The challenge is not reading the axes. It is knowing what features in the profile actually matter.
 
@@ -154,7 +154,7 @@ A practical beginner workflow is:
 3. Ask where they change together and where they do not.
 4. Use a θ-S or T-S view if you need a more diagnostic interpretation.
 
-This article pairs well with [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md), because the T-S view is often the next step after you understand the vertical profiles.
+This article pairs well with [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md), because the T-S view is often the next step after you understand the vertical profiles.
 
 ## Example 1: A Strongly Stratified Profile
 
@@ -294,7 +294,7 @@ Useful follow-up pages are:
 - [Search and Bookmark](../app-guide/usage-guide/basic-features/search-and-bookmark.md)
 - [Vertical Profiles](../app-guide/usage-guide/analysis-lab/vertical-profiles.md)
 - [How to Read Argo Float Data for Beginners (What to Look at First)](./how-to-read-argo-float-data.md)
-- [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md)
+- [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md)
 
 ## Explore Profiles in OceanGraph
 

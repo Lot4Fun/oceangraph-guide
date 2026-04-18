@@ -1,4 +1,4 @@
-# How to Make a T-S Diagram: Python vs Interactive Tools
+# Making a T-S Diagram: Python vs Interactive Tools
 
 If you search for **how to make a T-S diagram**, you will usually find code examples first. That makes sense because a T-S diagram is a classic oceanographic plot, and Python is a common way to generate it. But for many learners, researchers, and students, the real need is not "how do I write plotting code?" It is **how do I get to a usable T-S diagram quickly enough to understand the water structure?**
 
@@ -11,9 +11,9 @@ This guide compares two practical ways to make a T-S diagram:
 
 It explains what each path requires, where each one is strong, and why an interactive workflow is often the better first step when your goal is understanding rather than batch processing.
 
-If you want to understand how to read the finished plot, pair this article with [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md).
+If you want to understand how to read the finished plot, pair this article with [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md).
 
-## Why People Search for How to Make a T-S Diagram
+## Why People Search for Ways to Make a T-S Diagram
 
 The search intent behind this topic is usually one of these:
 
@@ -38,7 +38,7 @@ You need:
 - A way to compare one profile or multiple profiles
 - A clear reason for looking in T-S space rather than depth space alone
 
-In practice, it also helps to understand the profile first. If you have not yet done that, [How to Read Argo Float Data for Beginners (What to Look at First)](./how-to-read-argo-float-data.md) and [How to Read Ocean Temperature and Salinity Profiles](./how-to-read-ocean-temperature-and-salinity-profiles.md) are useful preparation.
+In practice, it also helps to understand the profile first. If you have not yet done that, [How to Read Argo Float Data for Beginners (What to Look at First)](./how-to-read-argo-float-data.md) and [Ocean Temperature and Salinity Profiles Explained](./ocean-temperature-and-salinity-profiles-explained.md) are useful preparation.
 
 For interpretation, remember that a T-S diagram is often a θ-S diagram in modern tools. OceanGraph uses a [θ-S Diagram](../app-guide/usage-guide/basic-features/t-s-diagram.md), which is the same core idea in a more analysis-friendly form.
 
@@ -160,7 +160,7 @@ In OceanGraph, you can:
 
 That sequence is important because it matches the scientific logic of interpretation.
 
-If you want the no-code exploration workflow in more detail, see [How to Visualize Argo Float Data Without Python (Step-by-Step Guide)](./visualize-argo-data-without-python.md).
+If you want the no-code exploration workflow in more detail, see [Visualizing Argo Float Data Without Python (Step-by-Step Guide)](./visualizing-argo-float-data-without-python.md).
 
 ## Python vs Interactive Tools: A Practical Comparison
 
@@ -227,7 +227,7 @@ OceanGraph's related pages for this workflow are:
 - [Search and Bookmark](../app-guide/usage-guide/basic-features/search-and-bookmark.md)
 - [Vertical Profiles](../app-guide/usage-guide/analysis-lab/vertical-profiles.md)
 - [θ-S Diagram](../app-guide/usage-guide/basic-features/t-s-diagram.md)
-- [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md)
+- [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md)
 
 ![θ-S diagram in OceanGraph](../imgs/t-s-diagram.png)
 

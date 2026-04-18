@@ -121,7 +121,7 @@ These patterns help you identify whether the upper ocean is strongly stratified,
 
 When reading temperature, focus first on the **shape** of the profile rather than any single number. A single surface value matters less than whether the profile shows a shallow warm layer, a strong thermocline, or a gradual transition.
 
-If you want a dedicated guide to profile interpretation, see [How to Read Ocean Temperature and Salinity Profiles](./how-to-read-ocean-temperature-and-salinity-profiles.md).
+If you want a dedicated guide to profile interpretation, see [Ocean Temperature and Salinity Profiles Explained](./ocean-temperature-and-salinity-profiles-explained.md).
 
 ### Salinity
 
@@ -244,7 +244,7 @@ A common Argo workflow looks like this:
 
 That workflow is valid for research, but it can be a poor first experience for beginners. The problem is not that coding is wrong. The problem is that it forces you to solve a software workflow before you have built any intuition about the ocean structure.
 
-This is exactly why many people end up searching for simpler paths such as [How to Visualize Argo Float Data Without Python (Step-by-Step Guide)](./visualize-argo-data-without-python.md).
+This is exactly why many people end up searching for simpler paths such as [Visualizing Argo Float Data Without Python (Step-by-Step Guide)](./visualizing-argo-float-data-without-python.md).
 
 ## A Better First Step: Explore Argo Profiles Interactively
 
@@ -262,9 +262,9 @@ That lets you learn the data structure through actual examples instead of throug
 
 Good follow-up pages after this article are:
 
-- [How to Read Ocean Temperature and Salinity Profiles](./how-to-read-ocean-temperature-and-salinity-profiles.md)
-- [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md)
-- [How to Visualize Argo Float Data Without Python (Step-by-Step Guide)](./visualize-argo-data-without-python.md)
+- [Ocean Temperature and Salinity Profiles Explained](./ocean-temperature-and-salinity-profiles-explained.md)
+- [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md)
+- [Visualizing Argo Float Data Without Python (Step-by-Step Guide)](./visualizing-argo-float-data-without-python.md)
 - [Vertical Profiles](../app-guide/usage-guide/analysis-lab/vertical-profiles.md)
 
 ## Try Real Argo Data in OceanGraph
@@ -299,7 +299,7 @@ No. NetCDF becomes useful when you want custom processing, but it does not have 
 
 ### What should I read after this guide?
 
-The best next steps are [How to Read Ocean Temperature and Salinity Profiles](./how-to-read-ocean-temperature-and-salinity-profiles.md) and [How to Read a T-S Diagram in Oceanography (With Examples)](./ts-diagram-explained.md).
+The best next steps are [Ocean Temperature and Salinity Profiles Explained](./ocean-temperature-and-salinity-profiles-explained.md) and [T-S Diagrams in Oceanography Explained (With Examples)](./ts-diagrams-in-oceanography-explained.md).
 
 ## Conclusion
 
