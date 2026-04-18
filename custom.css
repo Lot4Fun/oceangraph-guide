@@ -1,7 +1,0 @@
-/*
- Hide article entries from the sidebar while keeping the Articles landing page visible.
- The pages remain part of SUMMARY.md, so mdBook still builds them.
- */
-.chapter li.chapter-item:has(> .chapter-link-wrapper > a[href$="articles/index.html"]) > ol.section {
-  display: none;
-}
