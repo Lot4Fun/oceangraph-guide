@@ -8,6 +8,7 @@ language = "en"
 [output.html]
 preferred-dark-theme = "navy"
 default-theme = "light"
+additional-css = ["custom.css"]
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
 mathjax-support = true
 
