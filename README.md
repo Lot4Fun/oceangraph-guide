@@ -13,7 +13,7 @@ Launch mdbook using Docker/Docker Compose.
 
 ## Usage
 
-Start the documentation
+Start the documentation and make it available at `http://localhost:3030`:
 
 ```bash
 make up
